@@ -11,14 +11,14 @@ export type CtaLink = {
   label: string;
 };
 
-export type Service = {
+export interface Service {
   id: string;
   icon: LucideIcon;
   title: string;
   description: string;
   cta: CtaLink;
-  slug: string; 
-};
+  slug: string;
+}
 
 export type PortfolioCategory = 'AI Solutions' | 'Web Development' | 'Mobile Apps' | 'Content Creation' | 'Digital Strategy' | 'Social Media' | 'Design' | 'Video';
 

@@ -1,14 +1,11 @@
-"use client"
-
 import { motion } from "framer-motion"
-import Image from "next/image"
 
 interface TelegramButtonProps {
   username: string
   message?: string
 }
 
-export function TelegramButton({ username, message = "Hi! I'm interested in your services." }: TelegramButtonProps) {
+const TelegramButton = ({ username, message = "Hi! I'm interested in your services." }: TelegramButtonProps) => {
   const handleClick = () => {
     const cleanUsername = username.replace('@', '')
     const encodedMessage = encodeURIComponent(message)
@@ -36,16 +33,16 @@ export function TelegramButton({ username, message = "Hi! I'm interested in your
       onClick={handleClick}
     >
       <div className="w-12 h-12 relative drop-shadow-lg hover:drop-shadow-xl transition-all">
-        <Image
+        <img
           src="/Telegram-logo.png"
           alt="Contact on Telegram"
-          fill
-          sizes="(max-width: 768px) 48px, 48px"
-          className="object-contain"
-          priority
+          className="w-full h-full object-contain"
         />
       </div>
       <span className="sr-only">Contact on Telegram</span>
     </motion.div>
   )
-} 
+}
+
+TelegramButton.displayName = 'TelegramButton';
+export default TelegramButton;

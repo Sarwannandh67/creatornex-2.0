@@ -1,13 +1,10 @@
-import { Metadata } from 'next';
+import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Eye, Monitor, Keyboard, MessageSquare, Settings2, Users } from 'lucide-react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
-export const metadata: Metadata = {
-  title: 'Accessibility | CreatorNex',
-  description: 'Learn about CreatorNex\'s commitment to digital accessibility and our efforts to ensure our services are accessible to all users.',
-};
+// Metadata is now handled via React Helmet
 
 const accessibilityFeatures = [
   {
@@ -45,6 +42,10 @@ const accessibilityFeatures = [
 export default function AccessibilityPage() {
   return (
     <>
+      <Helmet>
+        <title>Accessibility | CreatorNex</title>
+        <meta name="description" content="Learn about CreatorNex's commitment to digital accessibility and our efforts to ensure our services are accessible to all users." />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -112,7 +113,7 @@ export default function AccessibilityPage() {
                 If you need assistance or have specific accessibility requirements, please don't hesitate to contact us.
               </p>
               <Link 
-                href="/contact" 
+                to="/contact" 
                 className="inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
               >
                 Contact Us

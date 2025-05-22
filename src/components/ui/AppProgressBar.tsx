@@ -1,12 +1,9 @@
-"use client"
-
-import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Progress } from '@/components/ui/progress'
 
-export function AppProgressBar() {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+const AppProgressBar = () => {
+  const location = useLocation()
   const [loading, setLoading] = useState(false)
   const [progress, setProgress] = useState(0)
 
@@ -16,7 +13,7 @@ export function AppProgressBar() {
     setProgress(0)
 
     // Progress simulation
-    let interval = setInterval(() => {
+    const interval = setInterval(() => {
       setProgress((prevProgress) => {
         // Increase progress gradually but slow down as it approaches 90%
         if (prevProgress >= 90) return prevProgress
@@ -25,7 +22,7 @@ export function AppProgressBar() {
     }, 100)
 
     // Complete the progress
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       clearInterval(interval)
       setProgress(100)
       setTimeout(() => {
@@ -35,8 +32,9 @@ export function AppProgressBar() {
 
     return () => {
       clearInterval(interval)
+      clearTimeout(timer)
     }
-  }, [pathname, searchParams])
+  }, [location.pathname, location.search])
 
   if (!loading) return null
 
@@ -49,3 +47,6 @@ export function AppProgressBar() {
     </div>
   )
 } 
+
+AppProgressBar.displayName = 'AppProgressBar'
+export default AppProgressBar; 

@@ -1,12 +1,12 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-import type { ImageProps } from "next/image"
+import React from "react"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-type ImagePropsWithAIHint = Omit<ImageProps, 'src' | 'alt'> & {
+type ImagePropsWithAIHint = React.ImgHTMLAttributes<HTMLImageElement> & {
   src: string;
   alt: string;
   'data-ai-hint'?: string;
@@ -17,12 +17,14 @@ export function getImageProps(props: ImagePropsWithAIHint) {
     src: props.src,
     alt: props.alt,
     className: props.className,
-    priority: props.priority,
-    sizes: props.sizes || '100vw',
+    loading: props.loading || 'lazy',
+    width: props.width,
+    height: props.height,
+    sizes: props.sizes,
     style: { 
       objectFit: 'cover' as const,
-      width: '100%',
-      height: '100%'
+      width: props.style?.width || '100%',
+      height: props.style?.height || '100%'
     },
     'data-ai-hint': props['data-ai-hint'],
   };

@@ -1,12 +1,10 @@
-
-"use client";
-import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import type { PortfolioItem } from '@/types';
+import React from 'react';
+import type { PortfolioItem } from '@/types/index';
 import { ArrowRight } from 'lucide-react';
 
 // In a real app, these would be fetched or filtered from a larger dataset
@@ -45,12 +43,12 @@ function PortfolioCardPreview({ item }: { item: PortfolioItem }) {
     <Card className="group flex h-full transform flex-col overflow-hidden rounded-2xl border-border bg-card/80 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] backdrop-blur-sm">
       <CardHeader className="p-0">
         <div className="relative h-56 w-full">
-          <Image
+          <img
+            width={600}
+            height={400}
             src={item.imageUrl}
             alt={item.title}
-            layout="fill"
-            objectFit="cover"
-            className="transition-transform duration-300 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             data-ai-hint={item.imageHint}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
@@ -64,7 +62,7 @@ function PortfolioCardPreview({ item }: { item: PortfolioItem }) {
       {item.detailsUrl && (
         <CardFooter className="p-6 pt-0">
           <Button asChild variant="link" className="group px-0 text-accent hover:text-primary">
-            <Link href={item.detailsUrl}>
+            <Link to={item.detailsUrl}>
               View Project <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
@@ -93,7 +91,7 @@ export function PortfolioPreview() {
       </div>
       <div className="mt-12 text-center">
         <Button asChild size="lg" variant="outline" className="rounded-2xl px-8 py-3 text-lg border-primary text-primary hover:bg-primary/10 hover:text-accent">
-          <Link href="/portfolio">
+          <Link to="/portfolio">
             See More Projects <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>

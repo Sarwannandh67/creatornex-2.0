@@ -1,15 +1,11 @@
-import type { Metadata } from 'next';
+import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import Image from 'next/image';
+import { Link } from 'react-router-dom';
 import { Briefcase, Lightbulb, Users, ArrowRight, Globe2, Clock, Laptop2, Zap } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Careers at CreatorNex',
-  description: 'Join India\'s First AI Agent-Powered Marketing Platform. Work remotely with a global team shaping the future of influencer and business marketing with innovative AI solutions.',
-};
+// Metadata is now handled via React Helmet
 
 const jobOpenings = [
   {
@@ -61,6 +57,10 @@ const remotePerks = [
 export default function CareersPage() {
   return (
     <>
+      <Helmet>
+        <title>Careers at CreatorNex</title>
+        <meta name="description" content="Join India's First AI Agent-Powered Marketing Platform. Work remotely with a global team shaping the future of influencer and business marketing with innovative AI solutions." />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <Briefcase className="h-16 w-16 text-accent mx-auto mb-4" />
@@ -119,13 +119,10 @@ export default function CareersPage() {
             </ul>
           </div>
           <div className="relative h-80 md:h-[450px] w-full">
-            <Image
+            <img
               src="/remote-team-collaboration.jpg"
               alt="CreatorNex remote team collaboration"
-              fill
-              sizes="(max-width: 768px) 100vw, 1200px"
-              priority
-              className="rounded-xl shadow-xl object-cover"
+              className="w-full h-full rounded-xl shadow-xl object-cover"
             />
           </div>
         </div>
@@ -150,7 +147,7 @@ export default function CareersPage() {
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">{job.description}</p>
                 <Button asChild variant="outline" className="w-full rounded-xl border-primary text-primary hover:bg-primary/10 hover:text-accent">
-                  <Link href={job.applyLink}>
+                  <Link to={job.applyLink}>
                     Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

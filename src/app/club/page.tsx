@@ -1,17 +1,23 @@
 
-import type { Metadata } from 'next';
-import Image from 'next/image';
+import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import type { ClubEvent } from '@/types';
+// Define ClubEvent type locally until we update the global types
+interface ClubEvent {
+  id: string;
+  title: string;
+  date: string;
+  location?: string;
+  description: string;
+  imageUrl?: string;
+  imageHint?: string;
+  registrationLink?: string;
+}
 import { Sparkles, CalendarDays, Users, Lightbulb, Mic, Award } from 'lucide-react';
 import { JoinClubForm } from '@/components/club/JoinClubForm';
 
-export const metadata: Metadata = {
-  title: 'CreatorNex AI Club',
-  description: 'Join the CreatorNex AI Club at your university! Connect with fellow AI enthusiasts, participate in workshops, attend events, and contribute to exciting AI projects.',
-};
+// Metadata is now handled via React Helmet
 
 const upcomingEvents: ClubEvent[] = [
   {
@@ -54,6 +60,11 @@ const clubActivities = [
 export default function UniversityClubPage() {
   return (
     <>
+      <Helmet>
+        <title>CreatorNex AI Club</title>
+        <meta name="description" content="Join the CreatorNex AI Club at your university! Connect with fellow AI enthusiasts, participate in workshops, attend events, and contribute to exciting AI projects." />
+      </Helmet>
+
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <Sparkles className="h-16 w-16 text-accent mx-auto mb-4" />
@@ -80,12 +91,10 @@ export default function UniversityClubPage() {
             </p>
           </div>
           <div className="relative h-80 md:h-[450px]">
-            <Image
+            <img
               src="https://placehold.co/500x450.png"
               alt="Students collaborating in an AI club"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-xl shadow-xl"
+              className="rounded-xl shadow-xl w-full h-full object-cover"
               data-ai-hint="students technology club"
             />
           </div>
@@ -148,7 +157,7 @@ export default function UniversityClubPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {Array.from({length: 4}).map((_, idx) => (
                  <div key={idx} className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
-                    <Image src={`https://placehold.co/400x400.png`} data-ai-hint="club event students" alt={`Club activity ${idx + 1}`} layout="fill" objectFit="cover" />
+                     <img src={`https://placehold.co/400x400.png`} data-ai-hint="club event students" alt={`Club activity ${idx + 1}`} className="w-full h-full object-cover" />
                  </div>
             ))}
         </div>
@@ -163,12 +172,10 @@ function EventCard({ event }: { event: ClubEvent }) {
       {event.imageUrl && (
         <CardHeader className="p-0">
           <div className="relative h-56 w-full">
-            <Image
+            <img
               src={event.imageUrl}
               alt={event.title}
-              layout="fill"
-              objectFit="cover"
-              className="transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               data-ai-hint={event.imageHint}
             />
           </div>

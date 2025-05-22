@@ -1,52 +1,61 @@
-'use client';
+import React, { lazy, Suspense } from 'react';
+import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+// Lazy load components
+const Toaster = lazy(() => import('@/components/ui/toaster'));
+const ScrollToTop = lazy(() => import('@/components/ui/ScrollToTop'));
+const WhatsAppButton = lazy(() => import('@/components/ui/WhatsAppButton'));
+const TelegramButton = lazy(() => import('@/components/ui/TelegramButton'));
+const AppProgressBar = lazy(() => import('@/components/ui/AppProgressBar'));
 
-const Toaster = dynamic(() => import('@/components/ui/toaster').then(mod => mod.Toaster), {
-  ssr: false,
-});
+// Fallback component for loading states
+const LoadingFallback = () => <div className="hidden" aria-hidden="true" />;
 
-const ScrollToTop = dynamic(() => import('@/components/ui/ScrollToTop').then(mod => mod.ScrollToTop), {
-  ssr: false,
-});
+// Error fallback component
+const ErrorFallback = () => <div className="hidden" aria-hidden="true" />;
 
-const WhatsAppButton = dynamic(() => import('@/components/ui/WhatsAppButton').then(mod => mod.WhatsAppButton), {
-  ssr: false,
-});
+// Wrapper component for lazy loaded components
+const LazyComponentWrapper: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => (
+  <ErrorBoundary fallback={<ErrorFallback />}>
+    <Suspense fallback={<LoadingFallback />}>
+      {children}
+    </Suspense>
+  </ErrorBoundary>
+);
 
-const TelegramButton = dynamic(() => import('@/components/ui/TelegramButton').then(mod => mod.TelegramButton), {
-  ssr: false,
-});
-
-const AppProgressBar = dynamic(() => import('@/components/ui/AppProgressBar').then(mod => mod.AppProgressBar), {
-  ssr: false,
-});
-
-export default function ClientComponents() {
+const ClientComponents: React.FC = () => {
   return (
     <>
-      <Suspense fallback={null}>
+      <LazyComponentWrapper>
         <AppProgressBar />
-      </Suspense>
-      <Suspense fallback={null}>
+      </LazyComponentWrapper>
+
+      <LazyComponentWrapper>
         <Toaster />
-      </Suspense>
-      <Suspense fallback={null}>
+      </LazyComponentWrapper>
+
+      <LazyComponentWrapper>
         <ScrollToTop />
-      </Suspense>
-      <Suspense fallback={null}>
+      </LazyComponentWrapper>
+
+      <LazyComponentWrapper>
         <WhatsAppButton 
           phoneNumber="+917416086946" 
           message="Hi! I'd like to learn more about CreatorNex services." 
         />
-      </Suspense>
-      <Suspense fallback={null}>
+      </LazyComponentWrapper>
+
+      <LazyComponentWrapper>
         <TelegramButton 
           username="CreatorNex" 
           message="Hi! I'd like to learn more about CreatorNex services." 
         />
-      </Suspense>
+      </LazyComponentWrapper>
     </>
   );
 } 
+
+ClientComponents.displayName = 'ClientComponents';
+export default ClientComponents; 

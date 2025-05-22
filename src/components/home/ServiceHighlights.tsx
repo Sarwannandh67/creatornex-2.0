@@ -1,9 +1,9 @@
-
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { ServiceCard } from '@/components/home/ServiceCard';
 import type { Service } from '@/types';
-import { Bot, Share2, Users, Palette, Film, MessageSquare, Search } from 'lucide-react'; // Updated icons
+import { Bot, Share2, Users, Palette, Film, Search } from 'lucide-react';
 import { Highlight } from '@/components/shared/Highlight';
+import { useState } from 'react';
 
 const servicesData: Service[] = [
   {
@@ -57,20 +57,35 @@ const servicesData: Service[] = [
 ];
 
 export function ServiceHighlights() {
+  const [showAll, setShowAll] = useState(false);
+  
+  // Show fewer items on mobile by default
+  const displayCount = showAll ? servicesData.length : 3;
+  
   return (
     <SectionWrapper className="bg-gradient-to-b from-background to-card">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <div className="text-center mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl px-4">
           Our Core <Highlight>Services</Highlight>
         </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+        <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-muted-foreground px-4">
           We provide a comprehensive suite of services to transform your ideas into reality and accelerate your growth.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {servicesData.slice(0, 6).map((service) => ( // Display up to 6 services
+      <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 px-4 sm:px-0">
+        {servicesData.slice(0, displayCount).map((service) => (
           <ServiceCard key={service.id} service={service} />
         ))}
+      </div>
+      
+      {/* Show More/Less Button for mobile */}
+      <div className="mt-8 flex justify-center md:hidden">
+        <button 
+          onClick={() => setShowAll(!showAll)} 
+          className="px-6 py-3 bg-primary/10 hover:bg-primary/20 text-primary rounded-full text-sm font-medium transition-all"
+        >
+          {showAll ? 'Show Less' : 'View All Services'}
+        </button>
       </div>
     </SectionWrapper>
   );

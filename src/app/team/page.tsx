@@ -1,10 +1,6 @@
-import { Metadata } from 'next';
-import Image from 'next/image';
+import { Helmet } from 'react-helmet-async';
 
-export const metadata: Metadata = {
-  title: 'Our Team | CreatorNex',
-  description: 'Meet the talented individuals behind CreatorNex who are driving innovation in AI and digital solutions.',
-};
+// Metadata is now handled via React Helmet
 
 interface TeamMember {
   name: string;
@@ -25,6 +21,11 @@ const teamMembers: TeamMember[] = [
 
 export default function TeamPage() {
   return (
+    <>
+      <Helmet>
+        <title>Our Team | CreatorNex</title>
+        <meta name="description" content="Meet the talented individuals behind CreatorNex who are driving innovation in AI and digital solutions." />
+      </Helmet>
     <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-4">Our Team</h1>
@@ -37,11 +38,12 @@ export default function TeamPage() {
         {teamMembers.map((member) => (
           <div key={member.name} className="bg-card rounded-lg p-6 shadow-lg">
             <div className="relative w-48 h-48 mx-auto mb-4">
-              <Image
+              <img
                 src={member.image}
                 alt={member.name}
-                fill
-                className="rounded-full object-cover"
+                width={192}
+                height={192}
+                className="rounded-full object-cover w-full h-full"
               />
             </div>
             <div className="text-center">
@@ -53,5 +55,6 @@ export default function TeamPage() {
         ))}
       </div>
     </div>
+    </>
   );
-} 
+}

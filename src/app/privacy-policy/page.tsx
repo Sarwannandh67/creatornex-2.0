@@ -1,16 +1,18 @@
 
-import type { Metadata } from 'next';
+import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: 'Read the Privacy Policy for CreatorNex to understand how we collect, use, and protect your personal information.',
-  robots: 'noindex, follow', // Good practice for legal pages until finalized
-};
+// Metadata is now handled via React Helmet
 
 export default function PrivacyPolicyPage() {
   return (
+    <>
+      <Helmet>
+        <title>Privacy Policy</title>
+        <meta name="description" content="Read the Privacy Policy for CreatorNex to understand how we collect, use, and protect your personal information." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
     <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold tracking-tight text-foreground text-center mb-8">
@@ -46,5 +48,6 @@ export default function PrivacyPolicyPage() {
         </div>
       </div>
     </SectionWrapper>
+    </>
   );
 }

@@ -1,18 +1,10 @@
-
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Bot, Zap, Brain, Users, MessageSquare, Palette, Film, ShoppingBag, ArrowRight } from 'lucide-react';
 import type { Service } from '@/types';
-
-export const metadata: Metadata = {
-  title: 'Our Services - CreatorNex',
-  description: 'Explore the range of services offered by CreatorNex, including AI Agents, Social Media Marketing, Influencer Marketing, Logo & Poster Design, and Video Editing. Powering your digital presence.',
-};
 
 const servicesData: Service[] = [
   {
@@ -57,7 +49,6 @@ const servicesData: Service[] = [
   },
 ];
 
-
 export default function ServicesPage() {
   return (
     <>
@@ -86,9 +77,9 @@ export default function ServicesPage() {
               <CardContent className="flex-grow">
                 <CardDescription className="text-muted-foreground leading-relaxed">{service.description}</CardDescription>
               </CardContent>
-              <CardContent> {/* Using CardContent for footer consistency, as CardFooter has different padding */}
+              <CardContent>
                 <Button asChild variant="link" className="group px-0 text-accent hover:text-primary">
-                  <Link href={service.cta.href || `/services/${service.slug}`}>
+                  <Link to={service.cta.href || `/services/${service.slug}`}>
                     {service.cta.label} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -112,10 +103,10 @@ export default function ServicesPage() {
             variant="outline"
             className="mt-8 rounded-2xl bg-primary-foreground px-10 py-4 text-lg text-primary shadow-lg transition-all hover:bg-primary-foreground/90 hover:scale-105"
           >
-            <Link href="/contact?subject=Service+Quote+Inquiry">Get a Quote</Link>
+            <Link to="/contact?subject=Service+Quote+Inquiry">Get a Quote</Link>
           </Button>
         </div>
       </SectionWrapper>
     </>
   );
-}
+} 

@@ -1,18 +1,14 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import type { PortfolioItem, PortfolioCategory, Testimonial } from '@/types';
+import type { PortfolioItem, PortfolioCategory, Testimonial } from '@/types/index';
 import { ArrowRight, Quote, Star } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Our Work & Portfolio',
-  description: 'Explore the innovative projects and successful case studies by CreatorNex. See how we deliver impactful AI solutions, web designs, and digital experiences for our clients.',
-};
+// Metadata is now handled via React Helmet
 
 const categories: PortfolioCategory[] = ['AI Solutions', 'Web Development', 'Mobile Apps', 'Content Creation', 'Digital Strategy'];
 
@@ -180,6 +176,10 @@ const testimonials: Testimonial[] = [
 export default function PortfolioPage() {
   return (
     <>
+      <Helmet>
+        <title>Our Work & Portfolio</title>
+        <meta name="description" content="Explore the innovative projects and successful case studies by CreatorNex. See how we deliver impactful AI solutions, web designs, and digital experiences for our clients." />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -248,12 +248,12 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
     <Card className="group flex h-full transform flex-col overflow-hidden rounded-2xl border-border bg-background/50 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] backdrop-blur-sm">
       <CardHeader className="p-0">
         <div className="relative h-56 w-full">
-          <Image
+          <img
             src={item.imageUrl}
             alt={item.title}
-            layout="fill"
-            objectFit="cover"
-            className="transition-transform duration-300 group-hover:scale-105"
+            width={600}
+            height={400}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             data-ai-hint={item.imageHint}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
@@ -267,7 +267,7 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
           <div className="mt-2 space-y-2">
             <p className="font-semibold text-sm text-foreground">Key Results:</p>
             <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-              {item.results.map((result, index) => (
+              {item.results.map((result: string, index: number) => (
                 <li key={index}>{result}</li>
               ))}
             </ul>
@@ -286,7 +286,7 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
       {item.detailsUrl && (
         <CardFooter className="p-6 pt-0">
           <Button asChild variant="outline" className="w-full rounded-xl border-primary text-primary hover:bg-primary/10 hover:text-accent">
-            <Link href={item.detailsUrl}>
+            <Link to={item.detailsUrl}>
               View Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -303,7 +303,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         <div className="flex items-center mb-4">
           {testimonial.clientAvatarUrl && (
             <div className="relative h-12 w-12 mr-4 rounded-full overflow-hidden">
-              <Image src={testimonial.clientAvatarUrl} alt={testimonial.clientName} layout="fill" objectFit="cover" data-ai-hint={testimonial.avatarHint} />
+              <img src={testimonial.clientAvatarUrl} alt={testimonial.clientName} width={48} height={48} className="absolute inset-0 w-full h-full object-cover" data-ai-hint={testimonial.avatarHint} />
             </div>
           )}
           <div>

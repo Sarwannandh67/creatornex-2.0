@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 // List of critical routes that should be preloaded
 const criticalRoutes = [
@@ -15,14 +15,15 @@ const criticalRoutes = [
 ];
 
 export function PreloadRoutes() {
-  const router = useRouter();
+  const location = useLocation();
+  const navigate = useNavigate();
   
   useEffect(() => {
     // Prefetch critical routes after the page has loaded and become idle
     if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
       const handle = window.requestIdleCallback(() => {
         criticalRoutes.forEach(route => {
-          router.prefetch(route);
+          navigate(route);
         });
       });
       
@@ -36,12 +37,12 @@ export function PreloadRoutes() {
     // Fallback for browsers that don't support requestIdleCallback
     const timeout = setTimeout(() => {
       criticalRoutes.forEach(route => {
-        router.prefetch(route);
+        navigate(route);
       });
     }, 2000);
     
     return () => clearTimeout(timeout);
-  }, [router]);
+  }, [location.pathname, navigate]);
 
   return null;
 } 

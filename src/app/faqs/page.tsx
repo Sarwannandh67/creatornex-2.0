@@ -1,5 +1,5 @@
 
-import type { Metadata } from 'next';
+import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import {
@@ -10,10 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { HelpCircle } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'FAQs - CreatorNex',
-  description: 'Find answers to frequently asked questions about CreatorNex, our services, processes, and how we can help your business.',
-};
+// Metadata is now handled via React Helmet
 
 const faqItems = [
   {
@@ -49,6 +46,10 @@ const faqItems = [
 export default function FaqsPage() {
   return (
     <>
+      <Helmet>
+        <title>FAQs - CreatorNex</title>
+        <meta name="description" content="Find answers to frequently asked questions about CreatorNex, our services, processes, and how we can help your business." />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <HelpCircle className="h-16 w-16 text-accent mx-auto mb-4" />

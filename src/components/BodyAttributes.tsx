@@ -1,8 +1,6 @@
-'use client';
-
 import { useEffect } from 'react';
 
-export default function BodyAttributes() {
+function BodyAttributes() {
   useEffect(() => {
     // Add Grammarly attributes after hydration
     const body = document.body;
@@ -12,3 +10,6 @@ export default function BodyAttributes() {
 
   return null;
 } 
+
+BodyAttributes.displayName = 'BodyAttributes';
+export default BodyAttributes; 

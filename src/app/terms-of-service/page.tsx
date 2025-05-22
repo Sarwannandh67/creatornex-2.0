@@ -1,16 +1,18 @@
 
-import type { Metadata } from 'next';
+import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 
-export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: 'Read the Terms of Service for CreatorNex. These terms govern your use of our website and services.',
-  robots: 'noindex, follow', // Good practice for legal pages until finalized
-};
+// Metadata is now handled via React Helmet
 
 export default function TermsOfServicePage() {
   return (
+    <>
+      <Helmet>
+        <title>Terms of Service</title>
+        <meta name="description" content="Read the Terms of Service for CreatorNex. These terms govern your use of our website and services." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
     <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold tracking-tight text-foreground text-center mb-8">
@@ -51,5 +53,6 @@ export default function TermsOfServicePage() {
         </div>
       </div>
     </SectionWrapper>
+    </>
   );
 }

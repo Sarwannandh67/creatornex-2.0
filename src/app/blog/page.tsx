@@ -1,18 +1,14 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CalendarDays, Rss, Search, Filter } from 'lucide-react';
-import type { BlogArticleStub } from '@/types';
+import type { BlogArticleStub } from '@/types/index';
 
-export const metadata: Metadata = {
-  title: 'CreatorNex Blog',
-  description: 'Explore articles, insights, and resources from CreatorNex on AI, social media marketing, design, and digital strategy.',
-};
+// Metadata is now handled via React Helmet
 
 // Placeholder data for blog posts - In a real app, this would come from a CMS or database
 export const allBlogPosts: BlogArticleStub[] = [
@@ -74,12 +70,12 @@ function BlogCard({ post }: { post: typeof allBlogPosts[0] }) {
       {post.imageUrl && (
         <CardHeader className="p-0">
           <div className="relative h-56 w-full">
-            <Image
+            <img
               src={post.imageUrl}
               alt={post.title}
-              layout="fill"
-              objectFit="cover"
-              className="transition-transform duration-300 group-hover:scale-105"
+              width={400}
+              height={250}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               data-ai-hint={post.imageHint}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
@@ -97,7 +93,7 @@ function BlogCard({ post }: { post: typeof allBlogPosts[0] }) {
         <CardDescription className="text-sm text-muted-foreground flex-grow">{post.excerpt}</CardDescription>
       </CardContent>
       <CardFooter className="p-6 pt-0">
-        <Link href={post.slug} className="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring w-full group">
+        <Link to={post.slug} className="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring w-full group">
             Read Article <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </CardFooter>
@@ -132,7 +128,7 @@ function BlogSidebar() {
                     <ul className="space-y-2">
                         {categories.map(category => (
                             <li key={category}>
-                                <Link href={`/blog/category/${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} className="text-muted-foreground hover:text-accent transition-colors flex items-center">
+                                <Link to={`/blog/category/${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} className="text-muted-foreground hover:text-accent transition-colors flex items-center">
                                     <Filter className="h-4 w-4 mr-2 text-accent/70" /> {category}
                                 </Link>
                             </li>
@@ -150,7 +146,7 @@ function BlogSidebar() {
                     <ul className="space-y-3">
                         {recentPosts.map(post => (
                             <li key={post.id}>
-                                <Link href={post.slug} className="text-muted-foreground hover:text-accent transition-colors text-sm font-medium block">
+                                <Link to={post.slug} className="text-muted-foreground hover:text-accent transition-colors text-sm font-medium block">
                                     {post.title}
                                 </Link>
                                 <p className="text-xs text-muted-foreground/70">{post.date}</p>
@@ -167,6 +163,10 @@ function BlogSidebar() {
 export default function BlogPage() {
   return (
     <>
+      <Helmet>
+        <title>CreatorNex Blog</title>
+        <meta name="description" content="Explore articles, insights, and resources from CreatorNex on AI, social media marketing, design, and digital strategy." />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <Rss className="h-16 w-16 text-accent mx-auto mb-4" />
@@ -190,7 +190,15 @@ export default function BlogPage() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <Image src="https://placehold.co/300x200.png" alt="No posts yet" width={300} height={200} className="mx-auto mb-4 rounded-lg" data-ai-hint="empty state illustration"/>
+                <img 
+                  src="https://placehold.co/300x200.png" 
+                  alt="No posts yet" 
+                  width={300} 
+                  height={200} 
+                  loading="lazy"
+                  className="mx-auto mb-4 rounded-lg" 
+                  data-ai-hint="empty state illustration"
+                />
                 <h2 className="text-2xl font-semibold text-foreground mb-2">Our Blog is Brewing!</h2>
                 <p className="text-muted-foreground">
                   We're working on some exciting content. Check back soon for insightful articles!

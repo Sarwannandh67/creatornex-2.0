@@ -1,14 +1,11 @@
-"use client"
-
 import { motion } from "framer-motion"
-import Image from "next/image"
 
 interface WhatsAppButtonProps {
   phoneNumber: string
   message?: string
 }
 
-export function WhatsAppButton({ phoneNumber, message = "Hello! I'm interested in your services." }: WhatsAppButtonProps) {
+const WhatsAppButton = ({ phoneNumber, message = "Hello! I'm interested in your services." }: WhatsAppButtonProps) => {
   const handleClick = () => {
     // Remove any non-numeric characters from the phone number
     const cleanNumber = phoneNumber.replace(/\D/g, '')
@@ -37,16 +34,16 @@ export function WhatsAppButton({ phoneNumber, message = "Hello! I'm interested i
       onClick={handleClick}
     >
       <div className="w-12 h-12 relative drop-shadow-lg hover:drop-shadow-xl transition-all">
-        <Image
+        <img
           src="/whatsapp-icon.png"
           alt="Contact on WhatsApp"
-          fill
-          sizes="(max-width: 768px) 48px, 48px"
-          className="object-contain"
-          priority
+          className="w-full h-full object-contain"
         />
       </div>
       <span className="sr-only">Contact on WhatsApp</span>
     </motion.div>
   )
-} 
+}
+
+WhatsAppButton.displayName = 'WhatsAppButton';
+export default WhatsAppButton;

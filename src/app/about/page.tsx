@@ -1,7 +1,6 @@
 
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
@@ -9,10 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { TeamMember } from '@/types';
 import { Users, Target, Eye, Linkedin, Twitter, Github, CheckCircle, Milestone } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'About CreatorNex',
-  description: 'Learn about CreatorNex: our story, our passionate team of innovators, our mission to empower businesses with AI, and our vision for the future of technology.',
-};
+// Metadata is now handled via React Helmet
 
 const teamMembers: TeamMember[] = [
   {
@@ -65,6 +61,10 @@ const milestones = [
 export default function AboutUsPage() {
   return (
     <>
+      <Helmet>
+        <title>About CreatorNex</title>
+        <meta name="description" content="Learn about CreatorNex: our story, our passionate team of innovators, our mission to empower businesses with AI, and our vision for the future of technology." />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <Users className="h-16 w-16 text-accent mx-auto mb-4" />
@@ -91,12 +91,10 @@ export default function AboutUsPage() {
             </p>
           </div>
           <div className="relative h-80 md:h-[450px]">
-            <Image
+            <img
               src="https://placehold.co/500x450.png"
               alt="Abstract representation of CreatorNex journey"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-xl shadow-xl"
+              className="rounded-xl shadow-xl w-full h-full object-cover"
               data-ai-hint="innovation journey"
             />
           </div>
@@ -202,10 +200,10 @@ export default function AboutUsPage() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild size="lg" className="rounded-2xl px-8 py-3 text-lg hover:scale-105 transition-transform">
-              <Link href="/contact">Work With Us</Link>
+              <Link to="/contact">Work With Us</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-2xl px-8 py-3 text-lg hover:scale-105 transition-transform border-primary text-primary hover:bg-primary/10 hover:text-accent">
-              <Link href="/careers">Explore Careers</Link>
+              <Link to="/careers">Explore Careers</Link>
             </Button>
           </div>
         </div>
@@ -218,26 +216,26 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
     <Card className="group flex flex-col items-center text-center rounded-2xl border-border bg-card/60 p-6 shadow-xl backdrop-blur-sm transition-all hover:shadow-primary/20">
       <div className="relative h-32 w-32 mb-4 rounded-full overflow-hidden shadow-lg">
-        <Image src={member.imageUrl} alt={member.name} layout="fill" objectFit="cover" data-ai-hint={member.imageHint} />
+        <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" data-ai-hint={member.imageHint} />
       </div>
       <CardTitle className="text-xl text-foreground mb-1">{member.name}</CardTitle>
       <p className="text-sm text-accent font-medium mb-2">{member.role}</p>
       <p className="text-sm text-muted-foreground mb-4 flex-grow">{member.bio}</p> {/* Display full shortened bio */}
       <div className="flex space-x-3">
         {member.linkedinUrl && (
-          <Link href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
+          <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
             <Linkedin className="h-5 w-5" />
-          </Link>
+          </a>
         )}
         {member.twitterUrl && (
-          <Link href={member.twitterUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
+          <a href={member.twitterUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
             <Twitter className="h-5 w-5" />
-          </Link>
+          </a>
         )}
         {member.githubUrl && (
-          <Link href={member.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
+          <a href={member.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
             <Github className="h-5 w-5" />
-          </Link>
+          </a>
         )}
       </div>
     </Card>

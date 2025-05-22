@@ -33,6 +33,10 @@ declare module 'lucide-react' {
   export const BarChart3: LucideIcon;
   export const Link2: LucideIcon;
   export const Settings: LucideIcon;
+  export const Award: LucideIcon;
+  export const DollarSign: LucideIcon;
+  export const Clock: LucideIcon;
+  export const Share2: LucideIcon;
 }
 
 declare module '@/components/shared/Highlight' {
@@ -51,6 +55,26 @@ declare module '@/components/ui/button' {
     size?: 'default' | 'sm' | 'lg' | 'icon';
     variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
     className?: string;
+    onClick?: () => void;
   }
   export const Button: FC<ButtonProps>;
-} 
+}
+
+// Navigation Link type definition
+export interface NavLinkItem {
+  href: string;
+  label: string;
+  icon?: any;
+}
+
+// Service type definition
+export interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon?: any;
+  features?: string[];
+  link?: string;
+  cta?: string;
+  slug?: string;
+}

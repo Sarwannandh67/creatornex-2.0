@@ -1,11 +1,14 @@
-'use client';
+import { lazy, Suspense } from 'react';
 
-import dynamic from 'next/dynamic';
+const BodyAttributes = lazy(() => import('@/components/BodyAttributes'));
 
-const BodyAttributes = dynamic(() => import('@/components/BodyAttributes'), {
-  ssr: false,
-});
+function BodyAttributesWrapper() {
+  return (
+    <Suspense fallback={null}>
+      <BodyAttributes />
+    </Suspense>
+  );
+}
 
-export default function BodyAttributesWrapper() {
-  return <BodyAttributes />;
-} 
+BodyAttributesWrapper.displayName = 'BodyAttributesWrapper';
+export default BodyAttributesWrapper;

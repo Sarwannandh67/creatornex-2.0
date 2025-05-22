@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Suspense } from 'react';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
@@ -8,10 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, MessageCircle /* WhatsApp */ } from 'lucide-react';
 import type { SocialLink } from '@/types';
 
-export const metadata: Metadata = {
-  title: 'Contact CreatorNex',
-  description: "Get in touch with CreatorNex. Reach out via our contact form, email, or social media. We're here to discuss your AI and digital solution needs.",
-};
+// Metadata is now handled via React Helmet
 
 const socialLinks: SocialLink[] = [
   { href: 'https://linkedin.com/company/creatornex', label: 'LinkedIn', icon: Linkedin },
@@ -33,6 +30,10 @@ export default function ContactPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Contact CreatorNex</title>
+        <meta name="description" content="Get in touch with CreatorNex. Reach out via our contact form, email, or social media. We're here to discuss your AI and digital solution needs." />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32" id="quote">
         <div className="text-center max-w-3xl mx-auto">
           <Mail className="h-16 w-16 text-accent mx-auto mb-4" />
@@ -57,22 +58,22 @@ export default function ContactPage() {
                 </p>
                 <p className="flex items-start">
                   <Mail className="h-5 w-5 text-accent mr-3 mt-1 flex-shrink-0" />
-                  <Link href="mailto:creatornex.main@gmail.com" className="hover:text-accent">creatornex.main@gmail.com</Link>
+                  <a href="mailto:creatornex.main@gmail.com" className="hover:text-accent">creatornex.main@gmail.com</a>
                 </p>
                 <p className="flex items-start">
                   <Phone className="h-5 w-5 text-accent mr-3 mt-1 flex-shrink-0" />
-                  <Link href="tel:+917416086946" className="hover:text-accent">+917416086946</Link>
+                  <a href="tel:+917416086946" className="hover:text-accent">+917416086946</a>
                 </p>
                 <p className="flex items-start">
                   <MessageCircle className="h-5 w-5 text-accent mr-3 mt-1 flex-shrink-0" /> {/* Using MessageCircle as generic chat icon */}
-                  <Link 
+                  <a 
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="hover:text-accent"
                   >
                     Chat on WhatsApp
-                  </Link>
+                  </a>
                 </p>
               </div>
             </div>
@@ -82,9 +83,9 @@ export default function ContactPage() {
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <Button key={social.label} variant="outline" size="icon" className="rounded-full border-primary text-primary hover:bg-primary/10 hover:text-accent" asChild>
-                    <Link href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+                    <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
                       <social.icon className="h-5 w-5" />
-                    </Link>
+                    </a>
                   </Button>
                 ))}
               </div>

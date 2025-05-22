@@ -1,10 +1,9 @@
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import Image from 'next/image';
+import { Link, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, CheckCircle, Bot, Zap, Brain, Users as UsersIcon, type LucideIcon, Search, BarChart3, Link2, Settings } from 'lucide-react'; // Added specific icons
-import type { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface ServiceUseCase {
@@ -193,26 +192,13 @@ const servicesDetails: Record<string, ServiceDetail> = {
   }
 };
 
-type ServicePageProps = {
-  params: { slug: string };
-};
+// Using useParams instead of props
 
-export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
-  const service = servicesDetails[params.slug];
-  if (!service) {
-    return {
-      title: 'Service Not Found - CreatorNex',
-      description: 'The requested service could not be found.',
-    };
-  }
-  return {
-    title: `${service.title} - CreatorNex`,
-    description: service.description,
-  };
-}
+// Metadata is now handled via React Helmet
 
-export default function ServicePage({ params }: ServicePageProps) {
-  const service = servicesDetails[params.slug];
+export default function ServicePage() {
+  const { slug } = useParams<{ slug: string }>();
+  const service = slug ? servicesDetails[slug] : undefined;
 
   if (!service) {
     return (
@@ -225,7 +211,7 @@ export default function ServicePage({ params }: ServicePageProps) {
             The requested service could not be found. Please check the URL or return to our services page.
           </p>
           <Button asChild className="mt-8">
-            <Link href="/services">
+            <Link to="/services">
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
             </Link>
           </Button>
@@ -236,9 +222,13 @@ export default function ServicePage({ params }: ServicePageProps) {
 
   return (
     <>
+      <Helmet>
+        <title>{service.title} - CreatorNex</title>
+        <meta name="description" content={service.description} />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
          <div className="max-w-3xl mx-auto">
-          <Link href="/services" className="inline-flex items-center text-accent hover:text-primary mb-8 text-sm group">
+          <Link to="/services" className="inline-flex items-center text-accent hover:text-primary mb-8 text-sm group">
             <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" /> Back to all services
           </Link>
           <div className="text-center">
@@ -262,17 +252,16 @@ export default function ServicePage({ params }: ServicePageProps) {
               {service.longDescription}
             </p>
              <Button asChild size="lg" className="rounded-2xl px-8 py-3 text-lg hover:scale-105 transition-transform">
-                <Link href={`/contact?subject=Inquiry+about+${service.title}`}>
+                <Link to={`/contact?subject=Inquiry+about+${service.title}`}>
                     Discuss Your Project
                 </Link>
             </Button>
           </div>
            <div className="relative h-80 md:h-[450px] rounded-xl overflow-hidden shadow-xl">
-            <Image
+            <img
               src={service.image}
               alt={`Illustration for ${service.title}`}
-              layout="fill"
-              objectFit="cover"
+              className="w-full h-full object-cover"
               data-ai-hint={service.imageHint || 'abstract service illustration'}
             />
           </div>
@@ -285,7 +274,7 @@ export default function ServicePage({ params }: ServicePageProps) {
             Key <Highlight>Features</Highlight>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {service.features.map((feature, index) => (
+            {service.features.map((feature: string, index: number) => (
               <div key={index} className="flex items-start p-4 bg-background/50 rounded-lg shadow-md">
                 <CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 flex-shrink-0" />
                 <span className="text-muted-foreground">{feature}</span>
@@ -303,7 +292,7 @@ export default function ServicePage({ params }: ServicePageProps) {
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {service.useCases.map((useCase) => (
+            {service.useCases.map((useCase: ServiceUseCase) => (
               <Card key={useCase.title} className="flex flex-col bg-background/50 backdrop-blur-sm shadow-lg border-border hover:shadow-primary/20 hover:border-primary/30 transition-all">
                 <CardHeader>
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
@@ -329,7 +318,7 @@ export default function ServicePage({ params }: ServicePageProps) {
           </div>
           <div className="max-w-3xl mx-auto">
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-              {service.benefits.map((benefit, index) => (
+              {service.benefits.map((benefit: string, index: number) => (
                 <li key={index} className="flex items-start">
                   <CheckCircle className="h-6 w-6 text-accent mr-3 mt-1 flex-shrink-0" />
                   <span className="text-lg text-muted-foreground">{benefit}</span>
@@ -349,7 +338,7 @@ export default function ServicePage({ params }: ServicePageProps) {
             Contact us today for a free consultation and let's explore how we can tailor this service to your unique requirements.
           </p>
           <Button asChild size="lg" className="mt-8 rounded-2xl px-8 py-3 text-lg hover:scale-105 transition-transform">
-            <Link href={`/contact?subject=Quote+for+${service.title}`}>
+            <Link to={`/contact?subject=Quote+for+${service.title}`}>
               Request a Quote
             </Link>
           </Button>
@@ -357,10 +346,4 @@ export default function ServicePage({ params }: ServicePageProps) {
       </SectionWrapper>
     </>
   );
-}
-
-export async function generateStaticParams() {
-  return Object.keys(servicesDetails).map((slug) => ({
-    slug,
-  }));
 }

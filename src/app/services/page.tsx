@@ -1,19 +1,30 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Bot, MessageSquare, Users, Palette, Film, ShoppingBag, ArrowRight, Search } from 'lucide-react';
-import type { Service } from '@/types';
+import type { LucideIcon } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Our Services - CreatorNex',
-  description: 'Explore the range of services offered by CreatorNex, including AI Agents, Social Media Marketing, Influencer Marketing, Logo & Poster Design, Video Editing, and SEO. Powering your digital presence.',
-};
+// Define locally to avoid import issues
+interface CtaLink {
+  href: string;
+  label: string;
+}
 
-const servicesData: Service[] = [
+interface ServiceType {
+  id: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  cta: CtaLink;
+  slug: string;
+}
+
+// Metadata is now handled via React Helmet
+
+const servicesData: ServiceType[] = [
   {
     id: 'ai-agents-service',
     icon: Bot,
@@ -68,6 +79,10 @@ const servicesData: Service[] = [
 export default function ServicesPage() {
   return (
     <>
+      <Helmet>
+        <title>Our Services - CreatorNex</title>
+        <meta name="description" content="Explore the range of services offered by CreatorNex, including AI Agents, Social Media Marketing, Influencer Marketing, Logo & Poster Design, Video Editing, and SEO. Powering your digital presence." />
+      </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <ShoppingBag className="h-16 w-16 text-accent mx-auto mb-4" />
@@ -95,7 +110,7 @@ export default function ServicesPage() {
               </CardContent>
               <CardContent> 
                 <Button asChild variant="link" className="group px-0 text-accent hover:text-primary">
-                  <Link href={service.cta.href || `/services/${service.slug}`}>
+                  <Link to={service.cta.href || `/services/${service.slug}`}>
                     {service.cta.label} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -118,7 +133,7 @@ export default function ServicesPage() {
             size="lg"
             className="mt-8 rounded-2xl px-10 py-6 text-lg shadow-lg transition-all hover:scale-105 bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            <Link href="/contact?subject=Service+Quote+Inquiry">Get a Quote</Link>
+            <Link to="/contact?subject=Service+Quote+Inquiry">Get a Quote</Link>
           </Button>
         </div>
       </SectionWrapper>

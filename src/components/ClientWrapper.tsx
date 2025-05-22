@@ -1,11 +1,14 @@
-'use client';
+import { lazy, Suspense } from 'react';
 
-import dynamic from 'next/dynamic';
+const ClientComponents = lazy(() => import('@/components/ClientComponents'));
 
-const ClientComponents = dynamic(() => import('@/components/ClientComponents'), {
-  ssr: false,
-});
+function ClientWrapper() {
+  return (
+    <Suspense fallback={<div>Loading client components...</div>}>
+      <ClientComponents />
+    </Suspense>
+  );
+}
 
-export default function ClientWrapper() {
-  return <ClientComponents />;
-} 
+ClientWrapper.displayName = 'ClientWrapper';
+export default ClientWrapper;

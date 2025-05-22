@@ -1,47 +1,46 @@
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import Image from 'next/image';
 
 const companyLinks = [
-  { href: '/about', label: 'About Us' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/team', label: 'Team' },
-  { href: '/careers', label: 'Careers' },
-  { href: '/contact', label: 'Contact' },
+  { to: '/about', label: 'About Us' },
+  { to: '/portfolio', label: 'Portfolio' },
+  { to: '/team', label: 'Team' },
+  { to: '/careers', label: 'Careers' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 const serviceLinks = [
-  { href: '/services/ai-agents', label: 'AI Agents' },
-  { href: '/services/social-media-marketing', label: 'Social Media Marketing' },
-  { href: '/services/influencer-marketing', label: 'Influencer Marketing' },
-  { href: '/services/logo-poster-design', label: 'Logo & Poster Design' },
-  { href: '/services/video-editing', label: 'Video Editing' },
-  { href: '/services/seo-service', label: 'SEO Services' },
+  { to: '/services/ai-agents', label: 'AI Agents' },
+  { to: '/services/social-media-marketing', label: 'Social Media Marketing' },
+  { to: '/services/influencer-marketing', label: 'Influencer Marketing' },
+  { to: '/services/logo-poster-design', label: 'Logo & Poster Design' },
+  { to: '/services/video-editing', label: 'Video Editing' },
+  { to: '/services/seo-service', label: 'SEO Services' },
 ];
 
 const resourceLinks = [
-  { href: '/blog', label: 'Blog' },
-  { href: '/case-studies', label: 'Case Studies' },
-  { href: '/documentation', label: 'Documentation' },
-  { href: '/faqs', label: 'FAQs' },
-  { href: '/newsletter', label: 'Newsletter' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/case-studies', label: 'Case Studies' },
+  { to: '/documentation', label: 'Documentation' },
+  { to: '/faqs', label: 'FAQs' },
+  { to: '/newsletter', label: 'Newsletter' },
 ];
 
 const legalLinks = [
-  { href: '/privacy-policy', label: 'Privacy Policy' },
-  { href: '/terms-of-service', label: 'Terms of Service' },
-  { href: '/cookie-policy', label: 'Cookie Policy' },
-  { href: '/accessibility', label: 'Accessibility' },
+  { to: '/privacy-policy', label: 'Privacy Policy' },
+  { to: '/terms-of-service', label: 'Terms of Service' },
+  { to: '/cookie-policy', label: 'Cookie Policy' },
+  { to: '/accessibility', label: 'Accessibility' },
 ];
 
 const connectLinks = [
-  { href: '/contact', label: 'Contact Us' },
-  { href: '/support', label: 'Support' },
-  { href: '/book-demo', label: 'Book a Demo' },
-  { href: '/partner', label: 'Partner Program' },
-  { href: '/events', label: 'Events' },
+  { to: '/contact', label: 'Contact Us' },
+  { to: '/support', label: 'Support' },
+  { to: '/book-demo', label: 'Book a Demo' },
+  { to: '/partner', label: 'Partner Program' },
+  { to: '/events', label: 'Events' },
 ];
 
 const socialLinks = [
@@ -52,7 +51,7 @@ const socialLinks = [
   { href: 'https://github.com/creatornex', icon: Github },
 ];
 
-export default function Footer() {
+function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -60,14 +59,14 @@ export default function Footer() {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-8 sm:py-12">
         {/* Top Section with Logo and Contact */}
         <div className="mb-8 sm:mb-12">
-          <Link href="/" className="inline-block">
-            <Image
+          <Link to="/" className="inline-block">
+            <img
               src="/logo.png"
               alt="CreatorNex"
-              width={160}
+              width={120}
               height={40}
               className="h-8 sm:h-10 w-auto object-contain"
-              priority
+              loading="eager"
             />
           </Link>
           <p className="mt-4 max-w-md text-sm sm:text-base text-muted-foreground">
@@ -94,7 +93,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -108,7 +107,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -122,7 +121,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {resourceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -136,7 +135,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {legalLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -150,7 +149,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {connectLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-muted-foreground hover:text-accent transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-accent transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -182,7 +181,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex space-x-4">
             {socialLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
                 className="text-muted-foreground hover:text-accent transition-colors"
@@ -190,7 +189,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <link.icon className="h-5 w-5" />
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -204,7 +203,7 @@ export default function Footer() {
             {legalLinks.map((link) => (
               <Link
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="text-sm text-muted-foreground hover:text-accent transition-colors"
               >
                 {link.label}
@@ -216,4 +215,7 @@ export default function Footer() {
     </footer>
   );
 }
+
+Footer.displayName = 'Footer';
+export default Footer;
 

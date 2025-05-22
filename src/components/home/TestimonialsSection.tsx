@@ -1,11 +1,10 @@
-
-"use client";
-import Image from 'next/image';
+// Converted from Next.js to React
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent } from '@/components/ui/card';
-import type { Testimonial } from '@/types';
+import type { Testimonial } from '@/types/index';
 import { Quote, Star } from 'lucide-react';
+import { useState } from 'react';
 
 // In a real app, these would be fetched
 const homePageTestimonials: Testimonial[] = [
@@ -53,27 +52,35 @@ const homePageTestimonials: Testimonial[] = [
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <Card className="h-full rounded-2xl border-border bg-card/80 p-6 shadow-xl backdrop-blur-sm flex flex-col whitespace-normal">
+    <Card className="h-full rounded-2xl border-border bg-card/80 p-3 sm:p-6 shadow-xl backdrop-blur-sm flex flex-col whitespace-normal">
       <CardContent className="p-0 flex flex-col flex-grow">
-        <div className="flex items-center mb-4">
+        <div className="flex items-center mb-2 sm:mb-4">
           {testimonial.clientAvatarUrl && (
-            <div className="relative h-12 w-12 mr-4 rounded-full overflow-hidden">
-              <Image src={testimonial.clientAvatarUrl} alt={testimonial.clientName} layout="fill" objectFit="cover" data-ai-hint={testimonial.avatarHint}/>
+            <div className="relative h-8 w-8 sm:h-12 sm:w-12 mr-2 sm:mr-4 rounded-full overflow-hidden">
+              <img 
+                src={testimonial.clientAvatarUrl} 
+                alt={testimonial.clientName} 
+                width={48} 
+                height={48} 
+                loading="lazy"
+                className="w-full h-full object-cover" 
+                data-ai-hint={testimonial.avatarHint}
+              />
             </div>
           )}
           <div>
-            <p className="font-semibold text-foreground">{testimonial.clientName}</p>
+            <p className="font-semibold text-foreground text-xs sm:text-base">{testimonial.clientName}</p>
             {testimonial.clientRole && testimonial.clientCompany && (
-              <p className="text-sm text-muted-foreground">{testimonial.clientRole}, {testimonial.clientCompany}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.clientRole}, {testimonial.clientCompany}</p>
             )}
           </div>
         </div>
-        <Quote className="h-8 w-8 text-accent mb-2 transform -scale-x-100" />
-        <blockquote className="text-muted-foreground italic leading-relaxed flex-grow break-words">
+        <Quote className="h-5 w-5 sm:h-8 sm:w-8 text-accent mb-1 sm:mb-2 transform -scale-x-100" />
+        <blockquote className="text-xs sm:text-base text-muted-foreground italic leading-relaxed flex-grow break-words line-clamp-4 sm:line-clamp-none">
           "{testimonial.quote}"
         </blockquote>
-        <div className="flex mt-4">
-            {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />)}
+        <div className="flex mt-2 sm:mt-4">
+            {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 sm:h-5 sm:w-5 text-yellow-400 fill-yellow-400" />)}
         </div>
       </CardContent>
     </Card>
@@ -81,18 +88,68 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 }
 
 export function TestimonialsSection() {
-  // Duplicate testimonials for a smoother infinite scroll effect
+  // For mobile view swipe functionality (simplified version)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // On mobile, show testimonials one by one instead of marquee
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % homePageTestimonials.length);
+  };
+  
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + homePageTestimonials.length) % homePageTestimonials.length);
+  };
+
+  // Duplicate testimonials for a smoother infinite scroll effect on desktop
   const duplicatedTestimonials = [...homePageTestimonials, ...homePageTestimonials];
 
   return (
     <SectionWrapper className="bg-gradient-to-b from-background to-card">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <div className="text-center mb-6 sm:mb-12">
+        <h2 className="text-xl sm:text-3xl font-bold tracking-tight text-foreground sm:text-4xl px-4">
           What Our <Highlight>Clients Say</Highlight>
         </h2>
       </div>
+      
+      {/* Mobile view (swipeable cards) */}
+      <div className="md:hidden px-4 relative">
+        <div className="mb-4">
+          <TestimonialCard testimonial={homePageTestimonials[currentIndex]} />
+        </div>
+        
+        <div className="flex justify-center items-center gap-2">
+          <button 
+            onClick={handlePrev}
+            className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center bg-primary/10 text-primary rounded-full"
+            aria-label="Previous testimonial"
+          >
+            &lt;
+          </button>
+          
+          <div className="flex gap-1">
+            {homePageTestimonials.map((_, idx) => (
+              <button 
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={`w-2 h-2 rounded-full ${idx === currentIndex ? 'bg-primary' : 'bg-primary/30'}`}
+                aria-label={`Go to testimonial ${idx + 1}`}
+              />
+            ))}
+          </div>
+          
+          <button 
+            onClick={handleNext}
+            className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center bg-primary/10 text-primary rounded-full"
+            aria-label="Next testimonial"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+      
+      {/* Desktop view (marquee) */}
       <div 
-        className="w-full overflow-hidden relative"
+        className="hidden md:block w-full overflow-hidden relative"
         style={{ 
           maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
           WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' 
@@ -102,7 +159,7 @@ export function TestimonialsSection() {
           {duplicatedTestimonials.map((testimonial, index) => (
             <div 
               key={`${testimonial.id}-${index}`} 
-              className="flex-shrink-0 w-[85vw] sm:w-[45vw] md:w-[30vw] lg:w-[23vw] mx-3" // Adjusted width and margin
+              className="flex-shrink-0 w-[30vw] lg:w-[23vw] mx-3" 
             >
               <TestimonialCard testimonial={testimonial} />
             </div>

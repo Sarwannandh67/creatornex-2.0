@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { useToast } from "@/hooks/use-toast"
 import {
   Toast,
@@ -10,12 +11,13 @@ import {
   ToastViewport,
 } from "@/components/ui/toast"
 
-export function Toaster() {
+const Toaster: React.FC = () => {
   const { toasts } = useToast()
 
   return (
     <ToastProvider>
-      {toasts.map(function ({ id, title, description, action, ...props }) {
+      {toasts?.map?.(({ id, title, description, action, ...props }) => {
+        if (!id) return null;
         return (
           <Toast key={id} {...props}>
             <div className="grid gap-1">
@@ -33,3 +35,6 @@ export function Toaster() {
     </ToastProvider>
   )
 }
+
+Toaster.displayName = 'Toaster';
+export default Toaster;
