@@ -1,7 +1,7 @@
 {
     "rewrites": [
       {
-        "source": "/(.*)",
+        "source": "/((?!_next/static|fonts|images|.*\\.(?:css|js|woff2|woff|ttf|otf)$).*)",
         "destination": "/index.html"
       }
     ],
@@ -37,7 +37,7 @@
         "headers": [
           {
             "key": "Content-Type",
-            "value": "text/css"
+            "value": "text/css; charset=utf-8"
           }
         ]
       },
