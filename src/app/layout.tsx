@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import ClientWrapper from '@/components/ClientWrapper'
+import { ScrollingText } from '@/components/ui/ScrollingText'
 import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,6 +26,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ClientWrapper />
+          <ScrollingText 
+            text="🎉 Welcome to CreatorNex! Transform your digital presence with our AI-powered solutions. Book a free consultation today! 🚀" 
+            speed="normal"
+          />
           {children}
         </ThemeProvider>
       </body>

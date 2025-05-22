@@ -7,6 +7,9 @@ const config: Config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
   	container: {
@@ -96,12 +99,27 @@ const config: Config = {
             opacity: "1",
             transform: "translateY(0) scale(1)"
           }
-        }
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-slow': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        'marquee-fast': {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
   		},
   		animation: {
   			"accordion-down": "accordion-down 0.2s ease-out",
   			"accordion-up": "accordion-up 0.2s ease-out",
-        "popup": "popupSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)"
+        "popup": "popupSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        marquee: 'marquee 30s linear infinite',
+        'marquee-slow': 'marquee 45s linear infinite',
+        'marquee-fast': 'marquee 20s linear infinite',
   		}
   	}
   },
