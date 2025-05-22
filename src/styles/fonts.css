@@ -1,8 +1,7 @@
 /* Font declarations */
 @font-face {
   font-family: 'Harmonia Sans Pro Condensed';
-  src: url('/fonts/HarmoniaSansProCondensed-Regular.otf') format('otf'),
-       url('/fonts/HarmoniaSansProCondensed-Regular.otf') format('otf');
+  src: url('/fonts/HarmoniaSansProCondensed-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -10,8 +9,7 @@
 
 @font-face {
   font-family: 'Harmonia Sans Pro Condensed';
-  src: url('/fonts/HarmoniaSansProCondensed-Bold.otf') format('otf'),
-       url('/fonts/HarmoniaSansProCondensed-Bold.otf') format('otf');
+  src: url('/fonts/HarmoniaSansProCondensed-Bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -20,7 +18,8 @@
 @font-face {
   font-family: 'Croogla 4F Medium';
   src: url('/fonts/Croogla4F-Medium.woff2') format('woff2'),
-       url('/fonts/Croogla4F-Medium.woff') format('woff');
+       url('/fonts/Croogla4F-Medium.woff') format('woff'),
+       url('/fonts/Croogla4F-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;

@@ -31,6 +31,24 @@
             "value": "1; mode=block"
           }
         ]
+      },
+      {
+        "source": "/(.*)\\.css$",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/css"
+          }
+        ]
+      },
+      {
+        "source": "/(.*)\\.(woff2|woff|ttf|otf)$",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "font/woff2"
+          }
+        ]
       }
     ],
     "trailingSlash": false
