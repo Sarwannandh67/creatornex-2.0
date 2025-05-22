@@ -84,7 +84,7 @@ const App: React.FC = () => {
             </SafeLazyComponent>
             <ScrollingText 
               text="🎉 Welcome to CreatorNex! Transform your digital presence with our AI-powered solutions. Book a free consultation today! 🚀 | 🚀 We are Hiring !!! 🔥" 
-              buttonText="|Click Here --> Apply Now <--|"
+              buttonText="Apply Now"
               onButtonClick={() => window.location.href = '/careers'}
               speed="normal"
             />

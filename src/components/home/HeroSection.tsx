@@ -5,7 +5,7 @@ import { Highlight } from "@/components/shared/Highlight";
 import { ArrowRight, MousePointer2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, lazy, Suspense, useRef } from "react";
+import { lazy, Suspense, useRef } from "react";
 
 // Stats with tooltips are less essential - can be deferred
 const StatsSection = lazy(() => import('@/components/home/StatsSection'));
@@ -119,7 +119,13 @@ export function HeroSection() {
               <motion.span
                 className="inline-block"
               >
-                <Highlight>Influencer & Business</Highlight>
+                <Highlight>Influencer &</Highlight>
+              </motion.span>
+              <br className="my-8 sm:my-12" />
+              <motion.span
+                className="inline-block"
+              >
+                <Highlight>Business</Highlight>
               </motion.span>{" "}
               Marketing
             </motion.h1>
