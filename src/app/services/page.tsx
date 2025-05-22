@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Bot, MessageSquare, Users, Palette, Film, ShoppingBag, ArrowRight, Search } from 'lucide-react';
+import { Bot, MessageSquare, Users, Palette, Film, ShoppingBag, ArrowRight, Search, Code } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 // Define locally to avoid import issues
@@ -32,6 +32,14 @@ const servicesData: ServiceType[] = [
     description: 'Deploy intelligent AI agents to automate tasks, enhance customer interactions, and provide data-driven insights for your business.',
     cta: { href: '/services/ai-agents-service', label: 'Explore AI Agents' },
     slug: 'ai-agents-service'
+  },
+  {
+    id: 'web-development',
+    icon: Code,
+    title: 'Web Development Solutions',
+    description: 'Crafting modern, responsive, and high-performance websites that drive engagement and deliver exceptional user experiences.',
+    cta: { href: '/services/web-development', label: 'Explore Web Development' },
+    slug: 'web-development'
   },
   {
     id: 'social-media-marketing',

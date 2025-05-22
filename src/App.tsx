@@ -1,9 +1,8 @@
-import React, { Suspense, useEffect, lazy } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { Separator } from '@/components/ui/separator';
-import Loading from '@/components/Loading';
 import ClientWrapper from '@/components/ClientWrapper';
 import BodyAttributesWrapper from '@/components/BodyAttributesWrapper';
 import { Preload } from './components/Preload';
@@ -28,6 +27,7 @@ const Portfolio = lazy(() => import('@/app/portfolio/page'));
 const Faqs = lazy(() => import('@/app/faqs/page'));
 const PrivacyPolicy = lazy(() => import('@/app/privacy-policy/page'));
 const TermsOfService = lazy(() => import('@/app/terms-of-service/page'));
+const SupportPage = lazy(() => import('@/app/support/page'));
 
 // Import blog post detail page directly
 const BlogPost = lazy(() => import('@/app/blog/[slug]/page').then(module => ({ default: module.default })));
@@ -225,6 +225,14 @@ const App: React.FC = () => {
                     element={
                       <SafeLazyComponent>
                     <TermsOfService />
+                      </SafeLazyComponent>
+                    }
+                  />
+                  <Route
+                    path="/support"
+                    element={
+                      <SafeLazyComponent>
+                        <SupportPage />
                       </SafeLazyComponent>
                     }
                   />

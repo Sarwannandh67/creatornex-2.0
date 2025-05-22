@@ -46,7 +46,7 @@ const connectLinks = [
 const socialLinks = [
   { href: 'https://facebook.com/creatornex', icon: Facebook },
   { href: 'https://twitter.com/creatornex', icon: Twitter },
-  { href: 'https://instagram.com/creatornex', icon: Instagram },
+  { href: 'https://instagram.com/creator.nex', icon: Instagram },
   { href: 'https://linkedin.com/company/creatornex', icon: Linkedin },
   { href: 'https://github.com/creatornex', icon: Github },
 ];

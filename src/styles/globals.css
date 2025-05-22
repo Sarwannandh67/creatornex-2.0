@@ -1,3 +1,5 @@
+@import './fonts.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -56,8 +58,8 @@
     --sidebar-ring: 262 90% 68%;
 
     /* Font families */
-    --font-harmonia: 'Harmonia Sans Pro Condensed', sans-serif;
-    --font-croogla: 'Croogla 4F Medium', sans-serif;
+    --font-harmonia: 'Harmonia Sans Pro Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-croogla: 'Croogla 4F Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 }
 
@@ -67,11 +69,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-harmonia), sans-serif; 
+    font-family: var(--font-harmonia);
     @apply text-base leading-relaxed tracking-wide;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-croogla), sans-serif;
+    font-family: var(--font-croogla);
     @apply font-bold text-foreground;
   }
   .text-highlight {

@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, CheckCircle, Bot, Zap, Brain, Users as UsersIcon, type LucideIcon, Search, BarChart3, Link2, Settings } from 'lucide-react'; // Added specific icons
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { LazyImage } from '@/components/shared/LazyImage';
 
 interface ServiceUseCase {
   icon: LucideIcon;
@@ -67,7 +68,7 @@ const servicesDetails: Record<string, ServiceDetail> = {
       "Data-Driven Decision Making",
       "Competitive Advantage",
     ],
-    image: 'https://placehold.co/800x500.png',
+    image: '/aiasagents.png',
     imageHint: 'AI agent dashboard'
   },
   'social-media-marketing': {
@@ -82,7 +83,7 @@ const servicesDetails: Record<string, ServiceDetail> = {
       'Brand Reputation Management & Social Listening',
       'Influencer Outreach & Collaboration Management',
     ],
-    image: 'https://placehold.co/800x500.png',
+    image: '/Social-Media-Marketing.png',
     imageHint: 'social media analytics'
   },
   'influencer-marketing': {
@@ -97,7 +98,7 @@ const servicesDetails: Record<string, ServiceDetail> = {
       'Detailed Performance Tracking & Reporting',
       'Building Authentic & Long-Term Brand Partnerships',
     ],
-    image: 'https://placehold.co/800x500.png',
+    image: '/Influencer-Marketing.png',
     imageHint: 'influencer collaboration network'
   },
   'logo-poster-design': {
@@ -112,7 +113,7 @@ const servicesDetails: Record<string, ServiceDetail> = {
       'High-Resolution Deliverables for All Mediums',
       'Multiple Design Concepts & Iterative Revisions',
     ],
-    image: 'https://placehold.co/800x500.png',
+    image: '/logo-design.png',
     imageHint: 'design portfolio showcase'
   },
   'video-editing': {
@@ -127,7 +128,7 @@ const servicesDetails: Record<string, ServiceDetail> = {
       'Story-Driven Editing for Maximum Impact',
       'Fast Turnaround Times & Multiple Format Delivery',
     ],
-    image: 'https://placehold.co/800x500.png',
+    image: '/editing.png',
     imageHint: 'video editing software interface'
   },
   'web-development': {
@@ -142,8 +143,38 @@ const servicesDetails: Record<string, ServiceDetail> = {
       'API Development & Third-Party Integrations',
       'Performance Optimization, SEO & Security Hardening',
     ],
-    image: 'https://placehold.co/800x500.png',
-    imageHint: 'website design process'
+    useCases: [
+      {
+        icon: Search,
+        title: 'Business Websites',
+        description: 'Professional websites that showcase your brand and convert visitors into customers.',
+      },
+      {
+        icon: BarChart3,
+        title: 'E-commerce Platforms',
+        description: 'Secure and scalable online stores with seamless payment processing.',
+      },
+      {
+        icon: Settings,
+        title: 'Web Applications',
+        description: 'Custom web applications that streamline your business operations.',
+      },
+      {
+        icon: Link2,
+        title: 'API Integration',
+        description: 'Seamless integration with third-party services and APIs.',
+      },
+    ],
+    benefits: [
+      "Enhanced User Experience",
+      "Mobile-First Responsive Design",
+      "Fast Loading Times",
+      "SEO-Friendly Architecture",
+      "Secure & Scalable Solutions",
+      "Ongoing Support & Maintenance",
+    ],
+    image: '/website-design.png',
+    imageHint: 'website development process'
   },
   'seo-service': {
     title: 'Search Engine Optimization',
@@ -187,7 +218,7 @@ const servicesDetails: Record<string, ServiceDetail> = {
       "Measurable Results & ROI",
       "Competitive Edge in Your Industry",
     ],
-    image: 'https://placehold.co/800x500.png',
+    image: '/drive-seo-organic-traffic.png',
     imageHint: 'seo analytics graph'
   }
 };
@@ -258,7 +289,7 @@ export default function ServicePage() {
             </Button>
           </div>
            <div className="relative h-80 md:h-[450px] rounded-xl overflow-hidden shadow-xl">
-            <img
+            <LazyImage
               src={service.image}
               alt={`Illustration for ${service.title}`}
               className="w-full h-full object-cover"

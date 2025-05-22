@@ -47,17 +47,18 @@ export type Testimonial = {
   avatarHint?: string;
 };
 
-export type TeamMember = {
+export interface TeamMember {
   id: string;
   name: string;
   role: string;
   bio: string;
   imageUrl: string;
-  imageHint?: string;
+  imageHint: string;
   linkedinUrl?: string;
   twitterUrl?: string;
   githubUrl?: string;
-};
+  instagramUrl?: string;
+}
 
 export type ClubEvent = {
   id:string;

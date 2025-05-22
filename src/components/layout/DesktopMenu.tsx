@@ -23,6 +23,7 @@ const menuItems = [
 const servicesItems = [
   { href: '/services', label: 'All Services' },
   { href: '/services/ai-agents-service', label: 'AI Agents as a Service' },
+  { href: '/services/web-development', label: 'Web Development Solutions' },
   { href: '/services/social-media-marketing', label: 'Social Media Marketing' },
   { href: '/services/influencer-marketing', label: 'Influencer Marketing' },
   { href: '/services/logo-poster-design', label: 'Logo & Poster Design' },

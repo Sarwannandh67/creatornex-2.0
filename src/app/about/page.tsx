@@ -1,44 +1,48 @@
-
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { TeamMember } from '@/types';
-import { Users, Target, Eye, Linkedin, Twitter, Github, CheckCircle, Milestone } from 'lucide-react';
+import { Users, Target, Eye, Milestone } from 'lucide-react';
+import { TeamMemberCard } from '@/components/team/TeamMemberCard';
 
-// Metadata is now handled via React Helmet
+interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string;
+  imageUrl: string;
+  imageHint: string;
+  linkedinUrl?: string;
+  twitterUrl?: string;
+  githubUrl?: string;
+  instagramUrl?: string;
+}
 
 const teamMembers: TeamMember[] = [
   {
     id: 'member-1',
-    name: 'Dr. Evelyn Reed',
-    role: 'Founder & CEO',
-    bio: 'Visionary leader with a PhD in AI, Evelyn founded CreatorNex to bridge cutting-edge AI with practical business solutions.',
-    imageUrl: 'https://placehold.co/300x300.png',
-    imageHint: 'woman tech leader',
-    linkedinUrl: '#',
-    twitterUrl: '#',
+    name: 'Sarwan Nandh',
+    role: 'Founder',
+    bio: 'Visionary founder of CreatorNex, bridging cutting-edge AI with practical business solutions.',
+    imageUrl: '/sarwan.jpg',
+    imageHint: 'man tech leader',
+    linkedinUrl: 'https://www.linkedin.com/in/sarwan-nandh/',
+    twitterUrl: 'https://x.com/sarwannandh_67',
+    githubUrl: 'https://github.com/Sarwannandh67',
+    instagramUrl: 'https://www.instagram.com/sarwannandh/',
   },
   {
     id: 'member-2',
-    name: 'Marcus Chen',
-    role: 'CTO & Head of Engineering',
-    bio: 'Marcus is a seasoned technologist specializing in scalable AI model deployment and robust product engineering.',
-    imageUrl: 'https://placehold.co/300x300.png',
+    name: 'Lohith Salla',
+    role: 'Founder',
+    bio: 'Founder of CreatorNex, bringing CreatorNex to businesses.',
+    imageUrl: '/lohith.jpg',
     imageHint: 'man software engineer',
-    linkedinUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    id: 'member-3',
-    name: 'Aisha Khan',
-    role: 'Head of Design & UX',
-    bio: 'Aisha champions user-centric design, ensuring CreatorNex solutions are powerful, intuitive, and engaging.',
-    imageUrl: 'https://placehold.co/300x300.png',
-    imageHint: 'woman designer',
-    linkedinUrl: '#',
+    linkedinUrl: 'https://www.linkedin.com/in/lohith-salla/',
+    githubUrl: 'https://github.com/lohithsalla',
+    instagramUrl: 'https://www.instagram.com/itzz.lokiii/',
   },
 ];
 
@@ -52,10 +56,10 @@ const coreValues = [
 ];
 
 const milestones = [
-    { year: "2021", event: "CreatorNex Founded", description: "A passion project begins, aiming to democratize AI solutions." },
-    { year: "2022", event: "First Major Client Acquired", description: "Successfully delivered a custom AI agent, proving our model." },
-    { year: "2023", event: "Team Expansion & New Office", description: "Grew our core team and moved into a dedicated innovation hub." },
-    { year: "2024", event: "Launch of CreatorNex AI Club", description: "Fostering the next generation of AI talent through university partnerships." },
+    { year: "2024", event: "CreatorNex Founded", description: "A passion project begins, aiming to democratize solutions." },
+    { year: "2024", event: "First Major Client Acquired", description: "Successfully delivered a custom AI agent, proving our model." },
+    { year: "2025", event: "Team Expansion", description: "Grew our core team and we hired new interns." },
+    { year: "2025", event: "Launch of CreatorNex AI", description: "Fostering the next generation of AI in the market." },
 ];
 
 export default function AboutUsPage() {
@@ -84,7 +88,7 @@ export default function AboutUsPage() {
               Our <Highlight>Story</Highlight>
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              CreatorNex was born from a shared passion for artificial intelligence and a desire to make its transformative power accessible to businesses of all sizes. Founded in 2021, we embarked on a mission to blend cutting-edge AI with creative digital solutions.
+              CreatorNex was born from a shared passion for artificial intelligence and a desire to make its transformative power accessible to businesses of all sizes. Founded in 2024, we embarked on a mission to blend cutting-edge AI with creative digital solutions.
             </p>
             <p className="mt-4 text-lg text-muted-foreground">
               We believe that technology should empower human potential, not replace it. Our journey has been one of continuous learning, innovation, and collaboration, always striving to deliver solutions that are not just technologically advanced but also ethically sound and impactful.
@@ -92,7 +96,7 @@ export default function AboutUsPage() {
           </div>
           <div className="relative h-80 md:h-[450px]">
             <img
-              src="https://placehold.co/500x450.png"
+              src="/story.png"
               alt="Abstract representation of CreatorNex journey"
               className="rounded-xl shadow-xl w-full h-full object-cover"
               data-ai-hint="innovation journey"
@@ -132,7 +136,7 @@ export default function AboutUsPage() {
         <div className="relative">
           {/* Desktop Timeline */}
           <div className="hidden md:block border-l-2 border-primary absolute h-full top-0 left-1/2 -translate-x-1/2"></div>
-          {milestones.map((milestone, index) => (
+          {milestones.map((milestone) => (
             <div key={milestone.year} className="mb-8 flex md:justify-between md:items-center w-full md:odd:flex-row-reverse">
               <div className="hidden md:block w-5/12"></div> {/* Spacer */}
               <div className="z-10 hidden md:block">
@@ -165,7 +169,18 @@ export default function AboutUsPage() {
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member) => (
-            <TeamMemberCard key={member.id} member={member} />
+            <TeamMemberCard
+              key={member.id}
+              name={member.name}
+              role={member.role}
+              bio={member.bio}
+              imageUrl={member.imageUrl}
+              imageHint={member.imageHint}
+              linkedinUrl={member.linkedinUrl}
+              twitterUrl={member.twitterUrl}
+              githubUrl={member.githubUrl}
+              instagramUrl={member.instagramUrl}
+            />
           ))}
         </div>
       </SectionWrapper>
@@ -209,35 +224,5 @@ export default function AboutUsPage() {
         </div>
       </SectionWrapper>
     </>
-  );
-}
-
-function TeamMemberCard({ member }: { member: TeamMember }) {
-  return (
-    <Card className="group flex flex-col items-center text-center rounded-2xl border-border bg-card/60 p-6 shadow-xl backdrop-blur-sm transition-all hover:shadow-primary/20">
-      <div className="relative h-32 w-32 mb-4 rounded-full overflow-hidden shadow-lg">
-        <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" data-ai-hint={member.imageHint} />
-      </div>
-      <CardTitle className="text-xl text-foreground mb-1">{member.name}</CardTitle>
-      <p className="text-sm text-accent font-medium mb-2">{member.role}</p>
-      <p className="text-sm text-muted-foreground mb-4 flex-grow">{member.bio}</p> {/* Display full shortened bio */}
-      <div className="flex space-x-3">
-        {member.linkedinUrl && (
-          <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
-            <Linkedin className="h-5 w-5" />
-          </a>
-        )}
-        {member.twitterUrl && (
-          <a href={member.twitterUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
-            <Twitter className="h-5 w-5" />
-          </a>
-        )}
-        {member.githubUrl && (
-          <a href={member.githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
-            <Github className="h-5 w-5" />
-          </a>
-        )}
-      </div>
-    </Card>
   );
 }
