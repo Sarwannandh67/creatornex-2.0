@@ -101,16 +101,16 @@ const config: Config = {
           }
         },
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(100%)' },
         },
         'marquee-slow': {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(100%)' },
         },
         'marquee-fast': {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(100%)' },
         },
   		},
   		animation: {
@@ -118,7 +118,7 @@ const config: Config = {
   			"accordion-up": "accordion-up 0.2s ease-out",
         "popup": "popupSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
         marquee: 'marquee 30s linear infinite',
-        'marquee-slow': 'marquee 45s linear infinite',
+        'marquee-slow': 'marquee 35s linear infinite',
         'marquee-fast': 'marquee 20s linear infinite',
   		}
   	}

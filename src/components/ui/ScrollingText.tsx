@@ -1,14 +1,18 @@
-import React from 'react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 interface ScrollingTextProps {
   text: string;
+  buttonText?: string;
+  onButtonClick?: () => void;
   className?: string;
   speed?: 'slow' | 'normal' | 'fast';
 }
 
 export function ScrollingText({ 
   text, 
+  buttonText,
+  onButtonClick,
   className,
   speed = 'normal' 
 }: ScrollingTextProps) {
@@ -20,17 +24,25 @@ export function ScrollingText({
 
   return (
     <div className={cn(
-      "w-full overflow-hidden bg-accent/10 py-2",
+      "sticky top-16 z-40 w-full overflow-hidden bg-black py-2 border-b border-gray-800",
       className
     )}>
-      <div className={cn(
-        "flex whitespace-nowrap",
-        speedClasses[speed]
-      )}>
-        <span className="text-sm font-medium text-accent px-4">{text}</span>
-        <span className="text-sm font-medium text-accent px-4">{text}</span>
-        <span className="text-sm font-medium text-accent px-4">{text}</span>
-        <span className="text-sm font-medium text-accent px-4">{text}</span>
+      <div className="flex items-center justify-center">
+        <div className={cn(
+          "flex items-center whitespace-nowrap",
+          speedClasses[speed]
+        )}>
+          <span className="text-sm font-medium text-white">{text}</span>
+          {buttonText && (
+            <Button 
+              variant="link" 
+              className="text-red-500 hover:text-red-400 ml-4 h-auto p-0 font-medium"
+              onClick={onButtonClick}
+            >
+              {buttonText}
+            </Button>
+          )}
+        </div>
       </div>
     </div>
   );

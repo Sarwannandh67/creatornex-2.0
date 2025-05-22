@@ -7,6 +7,7 @@ import ClientWrapper from '@/components/ClientWrapper';
 import BodyAttributesWrapper from '@/components/BodyAttributesWrapper';
 import { Preload } from './components/Preload';
 import PopupAlert from './components/PopupAlert';
+import { ScrollingText } from '@/components/ui/ScrollingText';
 
 // Lazy load layout components
 const Navbar = lazy(() => import('@/components/layout/Navbar'));
@@ -81,7 +82,12 @@ const App: React.FC = () => {
             <SafeLazyComponent>
               <Navbar />
             </SafeLazyComponent>
-
+            <ScrollingText 
+              text="🎉 Welcome to CreatorNex! Transform your digital presence with our AI-powered solutions. Book a free consultation today! 🚀 | 🚀 We are Hiring !!! 🔥" 
+              buttonText="|Click Here --> Apply Now <--|"
+              onButtonClick={() => window.location.href = '/careers'}
+              speed="normal"
+            />
             <main className="flex-grow">
               <ErrorBoundary>
                 <Routes>
