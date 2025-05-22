@@ -13,21 +13,35 @@ const jobOpenings = [
     title: 'Senior AI Engineer',
     location: 'Remote (India)',
     description: 'Lead the design and development of cutting-edge AI models and solutions. Strong experience in ML, DL, and Python required.',
-    applyLink: '/contact?subject=Application+Senior+AI+Engineer'
+    applyLink: '#application-form'
   },
   {
     id: 'frontend-dev',
-    title: 'Frontend Developer (React/Next.js)',
+    title: 'Frontend Developer',
     location: 'Remote (India)',
     description: 'Build beautiful and responsive user interfaces for our web applications. Proficiency in React, Next.js, and Tailwind CSS is a must.',
-    applyLink: '/contact?subject=Application+Frontend+Developer'
+    applyLink: '#application-form'
   },
   {
     id: 'ux-designer',
     title: 'UX/UI Designer',
     location: 'Remote (India)',
     description: 'Create intuitive and engaging user experiences for our diverse range of digital products. Strong portfolio showcasing UX research and UI design skills.',
-    applyLink: '/contact?subject=Application+UX/UI+Designer'
+    applyLink: '#application-form'
+  },
+  {
+    id: 'video-editor',
+    title: 'Video Editors',
+    location: 'Remote (India)',
+    description: 'Strong portfolio showcasing your editing skills. Filmora, CapCut, VN Editior, Adobe PR, etc...',
+    applyLink: '#application-form'
+  },
+  {
+    id: 'graphic-designers',
+    title: 'Graphic designers',
+    location: 'Remote (India)',
+    description: 'Strong portfolio showcasing your previous work with plenty of skills. Canva, Flyers, Posters, Thumbnails, Logo makers etc...',
+    applyLink: '#application-form'
   },
 ];
 
@@ -55,6 +69,22 @@ const remotePerks = [
 ];
 
 export default function CareersPage() {
+  const handleApplyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setTimeout(() => {
+      const formElement = document.getElementById('application-form');
+      if (formElement) {
+        const yOffset = -100;
+        const y = formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
+
   return (
     <>
       <Helmet>
@@ -147,7 +177,7 @@ export default function CareersPage() {
                 </p>
                 <p className="text-sm text-muted-foreground mb-4">{job.description}</p>
                 <Button asChild variant="outline" className="w-full rounded-xl border-primary text-primary hover:bg-primary/10 hover:text-accent">
-                  <Link to={job.applyLink}>
+                  <Link to={job.applyLink} onClick={handleApplyClick}>
                     Apply Now <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

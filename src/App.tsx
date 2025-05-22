@@ -6,6 +6,7 @@ import { Separator } from '@/components/ui/separator';
 import ClientWrapper from '@/components/ClientWrapper';
 import BodyAttributesWrapper from '@/components/BodyAttributesWrapper';
 import { Preload } from './components/Preload';
+import PopupAlert from './components/PopupAlert';
 
 // Lazy load layout components
 const Navbar = lazy(() => import('@/components/layout/Navbar'));
@@ -69,26 +70,26 @@ const App: React.FC = () => {
   return (
     <>
       <Preload />
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="dark"
-      enableSystem={false}
-      disableTransitionOnChange
-    >
-      <ErrorBoundary>
-        <div className="relative flex min-h-screen flex-col">
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem={false}
+        disableTransitionOnChange
+      >
+        <ErrorBoundary>
+          <div className="relative flex min-h-screen flex-col">
             <SafeLazyComponent>
-            <Navbar />
+              <Navbar />
             </SafeLazyComponent>
 
-          <main className="flex-grow">
-            <ErrorBoundary>
-              <Routes>
+            <main className="flex-grow">
+              <ErrorBoundary>
+                <Routes>
                   <Route
                     path="/"
                     element={
                       <SafeLazyComponent>
-                    <Home />
+                        <Home />
                       </SafeLazyComponent>
                     }
                   />
@@ -96,7 +97,7 @@ const App: React.FC = () => {
                     path="/about"
                     element={
                       <SafeLazyComponent>
-                    <About />
+                        <About />
                       </SafeLazyComponent>
                     }
                   />
@@ -104,7 +105,7 @@ const App: React.FC = () => {
                     path="/accessibility"
                     element={
                       <SafeLazyComponent>
-                    <Accessibility />
+                        <Accessibility />
                       </SafeLazyComponent>
                     }
                   />
@@ -112,7 +113,7 @@ const App: React.FC = () => {
                     path="/ai-agents"
                     element={
                       <SafeLazyComponent>
-                    <AiAgents />
+                        <AiAgents />
                       </SafeLazyComponent>
                     }
                   />
@@ -120,7 +121,7 @@ const App: React.FC = () => {
                     path="/blog/*"
                     element={
                       <SafeLazyComponent>
-                    <Blog />
+                        <Blog />
                       </SafeLazyComponent>
                     }
                   />
@@ -128,7 +129,7 @@ const App: React.FC = () => {
                     path="/blog/:slug"
                     element={
                       <SafeLazyComponent>
-                    <BlogPost />
+                        <BlogPost />
                       </SafeLazyComponent>
                     }
                   />
@@ -136,7 +137,7 @@ const App: React.FC = () => {
                     path="/book-demo"
                     element={
                       <SafeLazyComponent>
-                    <BookDemo />
+                        <BookDemo />
                       </SafeLazyComponent>
                     }
                   />
@@ -144,7 +145,7 @@ const App: React.FC = () => {
                     path="/careers"
                     element={
                       <SafeLazyComponent>
-                    <Careers />
+                        <Careers />
                       </SafeLazyComponent>
                     }
                   />
@@ -152,7 +153,7 @@ const App: React.FC = () => {
                     path="/club"
                     element={
                       <SafeLazyComponent>
-                    <Club />
+                        <Club />
                       </SafeLazyComponent>
                     }
                   />
@@ -160,7 +161,7 @@ const App: React.FC = () => {
                     path="/services/*"
                     element={
                       <SafeLazyComponent>
-                    <Services />
+                        <Services />
                       </SafeLazyComponent>
                     }
                   />
@@ -168,7 +169,7 @@ const App: React.FC = () => {
                     path="/services/:slug"
                     element={
                       <SafeLazyComponent>
-                    <ServiceDetail />
+                        <ServiceDetail />
                       </SafeLazyComponent>
                     }
                   />
@@ -176,7 +177,7 @@ const App: React.FC = () => {
                     path="/contact"
                     element={
                       <SafeLazyComponent>
-                    <Contact />
+                        <Contact />
                       </SafeLazyComponent>
                     }
                   />
@@ -184,7 +185,7 @@ const App: React.FC = () => {
                     path="/cookie-policy"
                     element={
                       <SafeLazyComponent>
-                    <CookiePolicy />
+                        <CookiePolicy />
                       </SafeLazyComponent>
                     }
                   />
@@ -192,7 +193,7 @@ const App: React.FC = () => {
                     path="/portfolio/*"
                     element={
                       <SafeLazyComponent>
-                    <Portfolio />
+                        <Portfolio />
                       </SafeLazyComponent>
                     }
                   />
@@ -200,7 +201,7 @@ const App: React.FC = () => {
                     path="/portfolio/:slug"
                     element={
                       <SafeLazyComponent>
-                    <PortfolioDetail />
+                        <PortfolioDetail />
                       </SafeLazyComponent>
                     }
                   />
@@ -208,7 +209,7 @@ const App: React.FC = () => {
                     path="/faqs"
                     element={
                       <SafeLazyComponent>
-                    <Faqs />
+                        <Faqs />
                       </SafeLazyComponent>
                     }
                   />
@@ -216,7 +217,7 @@ const App: React.FC = () => {
                     path="/privacy-policy"
                     element={
                       <SafeLazyComponent>
-                    <PrivacyPolicy />
+                        <PrivacyPolicy />
                       </SafeLazyComponent>
                     }
                   />
@@ -224,7 +225,7 @@ const App: React.FC = () => {
                     path="/terms-of-service"
                     element={
                       <SafeLazyComponent>
-                    <TermsOfService />
+                        <TermsOfService />
                       </SafeLazyComponent>
                     }
                   />
@@ -236,30 +237,44 @@ const App: React.FC = () => {
                       </SafeLazyComponent>
                     }
                   />
-              </Routes>
-            </ErrorBoundary>
-          </main>
+                </Routes>
+              </ErrorBoundary>
+            </main>
 
-          <div className="container mx-auto max-w-screen-xl px-6">
-            <Separator className="my-4 bg-black" />
-          </div>
+            <div className="container mx-auto max-w-screen-xl px-6">
+              <Separator className="my-4 bg-black" />
+            </div>
 
             <SafeLazyComponent>
-            <Footer />
+              <Footer />
             </SafeLazyComponent>
-        </div>
+          </div>
 
           <SafeLazyComponent fallback={null}>
             <ScrollToTopComponent />
           </SafeLazyComponent>
 
           <SafeLazyComponent fallback={null}>
-        <ClientWrapper />
+            <ClientWrapper />
           </SafeLazyComponent>
 
-        <BodyAttributesWrapper />
-      </ErrorBoundary>
-    </ThemeProvider>
+          <BodyAttributesWrapper />
+
+          {/* PopupAlert Component - Added here so it appears globally */}
+          <PopupAlert 
+            title="🚀We are Hiring!!🔥"
+            message="Ready to unleash your creativity? Join with other creators building amazing content with our platform.
+            Get started today and transform your ideas into reality!  --CreatorNex LLc"
+            showOnLoad={true}
+            ctaText="Apply Now"
+            cancelText="Thanks"
+            onCtaClick={() => {
+              // Navigate to signup or main CTA action
+              window.location.href = '/careers';
+            }}
+          />
+        </ErrorBoundary>
+      </ThemeProvider>
     </>
   );
 };
