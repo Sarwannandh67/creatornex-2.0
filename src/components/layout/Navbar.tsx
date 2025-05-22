@@ -94,7 +94,7 @@ export default function Navbar() {
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300",
-      isScrolled ? "bg-background/90 backdrop-blur-md shadow-lg" : "bg-transparent"
+      isScrolled ? "bg-background/90 backdrop-blur-md shadow-lg" : "bg-background/80 backdrop-blur-sm"
     )}>
       <div className="container mx-auto flex h-20 max-w-screen-xl items-center justify-between px-6">
         <Logo />
@@ -125,15 +125,15 @@ export default function Navbar() {
                       <span>Services</span> <ChevronDown className="ml-1 h-4 w-4" />
                   </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-card text-card-foreground border-border shadow-lg rounded-xl">
-                  <DropdownMenuItem asChild>
-                       <Link href="/services" className="flex items-center w-full px-2 py-1.5 text-sm hover:bg-muted/50 rounded-md">
+              <DropdownMenuContent align="start" className="w-56 bg-background/95 backdrop-blur-md text-foreground border border-border/50 shadow-lg rounded-xl z-50">
+                  <DropdownMenuItem asChild className="focus:bg-accent/10 focus:text-accent">
+                       <Link href="/services" className="flex items-center w-full px-2 py-1.5 text-sm hover:bg-accent/10 hover:text-accent rounded-md">
                           <ShoppingBag className="mr-2 h-4 w-4" /> <span>All Services</span>
                       </Link>
                   </DropdownMenuItem>
                   {servicesForDropdown.map((service) => (
-                      <DropdownMenuItem key={service.label} asChild>
-                          <Link href={service.href} className="flex items-center w-full px-2 py-1.5 text-sm hover:bg-muted/50 rounded-md">
+                      <DropdownMenuItem key={service.label} asChild className="focus:bg-accent/10 focus:text-accent">
+                          <Link href={service.href} className="flex items-center w-full px-2 py-1.5 text-sm hover:bg-accent/10 hover:text-accent rounded-md">
                              {service.icon && <service.icon className="mr-2 h-4 w-4" />}
                              <span>{service.label}</span>
                           </Link>

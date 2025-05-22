@@ -49,12 +49,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center relative flex flex-col min-h-[100vh] justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center space-y-8 mb-12"
-          >
+          <div className="flex flex-col items-center space-y-8 mb-12">
             {/* Simplified tagline */}
             <p className="text-sm font-normal uppercase tracking-widest text-accent md:text-base lg:text-lg mb-2">
               India's First AI Agent-Powered Platform
@@ -97,10 +92,12 @@ export function HeroSection() {
             </div>
 
             {/* Stats section - deferred loading */}
-            <Suspense fallback={<div className="h-40 w-full animate-pulse bg-card/20 rounded-xl" />}>
-              <StatsSection />
-            </Suspense>
-          </motion.div>
+            <div className="h-40 w-full">
+              <Suspense fallback={<div className="h-40 w-full animate-pulse bg-card/20 rounded-xl" />}>
+                <StatsSection />
+              </Suspense>
+            </div>
+          </div>
 
           {/* Scroll button with reduced animation */}
           <div className="absolute bottom-12 left-0 right-0 flex justify-center">

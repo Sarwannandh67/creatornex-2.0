@@ -1,4 +1,3 @@
-
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Button } from '@/components/ui/button';
@@ -199,36 +198,38 @@ type ServicePageProps = {
 };
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
-  const serviceKey = params.slug as keyof typeof servicesDetails;
-  const service = servicesDetails[serviceKey];
+  const service = servicesDetails[params.slug];
   if (!service) {
     return {
-      title: 'Service Not Found',
+      title: 'Service Not Found - CreatorNex',
+      description: 'The requested service could not be found.',
     };
   }
   return {
-    title: `${service.title} - CreatorNex Services`,
+    title: `${service.title} - CreatorNex`,
     description: service.description,
   };
 }
 
 export default function ServicePage({ params }: ServicePageProps) {
-  const { slug } = params;
-  const serviceKey = slug as keyof typeof servicesDetails;
-  const service = servicesDetails[serviceKey];
+  const service = servicesDetails[params.slug];
 
   if (!service) {
     return (
-      <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32 text-center">
-        <h1 className="text-4xl font-bold">Service Not Found</h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          The service you are looking for does not exist or has been moved.
-        </p>
-        <Button asChild className="mt-8 rounded-2xl">
-          <Link href="/services"> 
-            <ArrowLeft className="mr-2 h-5 w-5" /> Back to Services
-          </Link>
-        </Button>
+      <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            Service Not Found
+          </h1>
+          <p className="mt-6 text-lg text-muted-foreground md:text-xl">
+            The requested service could not be found. Please check the URL or return to our services page.
+          </p>
+          <Button asChild className="mt-8">
+            <Link href="/services">
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Services
+            </Link>
+          </Button>
+        </div>
       </SectionWrapper>
     );
   }
