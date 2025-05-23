@@ -26,13 +26,26 @@ app.use(express.static(path.join(__dirname, 'dist'), {
   maxAge: '1y',
   // Enable compression for static files
   setHeaders: (res, path) => {
-    // Set cache control headers
+    // Set cache control headers based on file type
     if (path.endsWith('.html')) {
       // Don't cache HTML files
       res.setHeader('Cache-Control', 'no-cache');
+    } else if (path.match(/\.(jpg|jpeg|png|gif|webp|svg|ico)$/)) {
+      // Cache images for 1 year
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      res.setHeader('Expires', new Date(Date.now() + 31536000000).toUTCString());
+    } else if (path.match(/\.(css|js)$/)) {
+      // Cache CSS and JS files for 1 week
+      res.setHeader('Cache-Control', 'public, max-age=604800');
+      res.setHeader('Expires', new Date(Date.now() + 604800000).toUTCString());
+    } else if (path.match(/\.(woff|woff2|ttf|eot)$/)) {
+      // Cache fonts for 1 year
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      res.setHeader('Expires', new Date(Date.now() + 31536000000).toUTCString());
     } else {
-      // Cache all other files for 1 year
-      res.setHeader('Cache-Control', 'public, max-age=31536000');
+      // Default cache for other files (1 day)
+      res.setHeader('Cache-Control', 'public, max-age=86400');
+      res.setHeader('Expires', new Date(Date.now() + 86400000).toUTCString());
     }
   }
 }));
