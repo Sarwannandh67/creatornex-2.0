@@ -67,17 +67,17 @@ export function HeroSection() {
           {`
             @keyframes moveStar {
               0% {
-                transform: translate(-50%, -50%) scale(1);
+                transform: translate(-50%, -50%);
                 opacity: 0;
               }
               10% {
-                opacity: 1;
+                opacity: 0.8;
               }
               90% {
-                opacity: 1;
+                opacity: 0.8;
               }
               100% {
-                transform: translate(-50%, 100vh) scale(0.5);
+                transform: translate(-50%, 100vh);
                 opacity: 0;
               }
             }
