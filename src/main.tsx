@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { ThemeProvider } from './components/theme/ThemeProvider';
 import App from './App';
-import './styles/globals.css';
+import './app/globals.css';
 
 const router = createBrowserRouter(
   [
@@ -27,8 +28,10 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <HelmetProvider>
-      <RouterProvider router={router} />
-    </HelmetProvider>
+    <ThemeProvider defaultTheme="light" storageKey="creatornex-theme">
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 );
