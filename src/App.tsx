@@ -30,6 +30,8 @@ const Faqs = lazy(() => import('@/app/faqs/page'));
 const PrivacyPolicy = lazy(() => import('@/app/privacy-policy/page'));
 const TermsOfService = lazy(() => import('@/app/terms-of-service/page'));
 const SupportPage = lazy(() => import('@/app/support/page'));
+const Events = lazy(() => import('@/pages/Events'));
+const PartnerProgram = lazy(() => import('@/pages/PartnerProgram'));
 
 // Import blog post detail page directly
 const BlogPost = lazy(() => import('@/app/blog/[slug]/page').then(module => ({ default: module.default })));
@@ -240,6 +242,22 @@ const App: React.FC = () => {
                     element={
                       <SafeLazyComponent>
                         <SupportPage />
+                      </SafeLazyComponent>
+                    }
+                  />
+                  <Route
+                    path="/events"
+                    element={
+                      <SafeLazyComponent>
+                        <Events />
+                      </SafeLazyComponent>
+                    }
+                  />
+                  <Route
+                    path="/partner-program"
+                    element={
+                      <SafeLazyComponent>
+                        <PartnerProgram />
                       </SafeLazyComponent>
                     }
                   />

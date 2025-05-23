@@ -39,7 +39,7 @@ const connectLinks = [
   { to: '/contact', label: 'Contact Us' },
   { to: '/support', label: 'Support' },
   { to: '/book-demo', label: 'Book a Demo' },
-  { to: '/partner', label: 'Partner Program' },
+  { to: '/partner-program', label: 'Partner Program' },
   { to: '/events', label: 'Events' },
 ];
 
