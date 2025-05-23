@@ -249,6 +249,12 @@
     font-family: var(--font-harmonia), sans-serif;
   }
 
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+                      linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
   /* Accessible button styles with better contrast */
   .btn-accessible {
     background-color: hsl(var(--accent-accessible));
