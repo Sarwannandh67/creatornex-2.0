@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 const menuItems = [
   { href: '/', label: 'Home' },
@@ -48,9 +49,12 @@ const MobileMenu: React.FC = () => {
 
   return (
     <div className="md:hidden">
-      <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Menu">
-        {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </Button>
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Menu">
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </Button>
+      </div>
 
       {isMenuOpen && (
         <div className="absolute left-0 top-16 z-50 w-full bg-background border-b p-4">
