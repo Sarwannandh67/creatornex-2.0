@@ -77,12 +77,14 @@ const App: React.FC = () => {
           <SafeLazyComponent>
             <Navbar />
           </SafeLazyComponent>
-          <ScrollingText 
-            text="🎉 Welcome to CreatorNex! Transform your digital presence with our AI-powered solutions. Book a free consultation today! 🚀 | 🚀 We are Hiring !!! 🔥" 
-            buttonText="Apply Now"
-            onButtonClick={() => window.location.href = '/careers'}
-            speed="normal"
-          />
+          {location.pathname === '/' && (
+            <ScrollingText 
+              text="🎉 Welcome to CreatorNex! Transform your digital presence with our AI-powered solutions. Book a free consultation today! 🚀 | 🚀 We are Hiring !!! 🔥" 
+              buttonText="Apply Now"
+              onButtonClick={() => window.location.href = '/careers'}
+              speed="normal"
+            />
+          )}
           <main className="flex-grow">
             <ErrorBoundary>
               <Routes>

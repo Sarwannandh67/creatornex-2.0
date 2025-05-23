@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
@@ -11,10 +11,23 @@ const LandscapeMobileMenu = lazy(() => import('./LandscapeMobileMenu'));
 
 const Navbar: React.FC = () => {
   const { theme } = useTheme();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+    <header className={`fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[75%] border rounded-full bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/40 shadow-lg transition-all duration-200 ${
+      isScrolled ? 'bg-background/90 shadow-xl' : ''
+    }`}>
+      <div className="container flex h-16 items-center justify-between px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img 

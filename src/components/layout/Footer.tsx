@@ -57,14 +57,15 @@ function Footer() {
   const { theme } = useTheme();
 
   return (
-    <footer className="relative overflow-hidden">
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background/90">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-background"></div>
-      </div>
-
-      <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 relative">
+    <footer className="relative" style={{
+      background: `
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(88, 28, 135, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 100% 80% at 20% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 60%),
+        linear-gradient(180deg, #050505 0%, #0a0a0f 20%, #1a1127 40%, #0f0f1a 60%, #000000 100%)
+      `
+    }}>
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
         {/* Top Section with Logo and Contact */}
         <div className="mb-12 sm:mb-16">
           <Link to="/" className="inline-block">
@@ -79,12 +80,12 @@ function Footer() {
           </p>
           <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
             <div className="flex items-center">
-              <span className="text-primary">📞</span>
+              <span className="text-foreground">📞</span>
               <span className="ml-2 text-sm text-muted-foreground">+91 7416086946</span>
             </div>
             <div className="hidden sm:block h-4 w-px bg-border" />
             <div className="flex items-center">
-              <span className="text-primary">✉️</span>
+              <span className="text-foreground">✉️</span>
               <span className="ml-2 text-sm text-muted-foreground">creatornex.main@gmail.com</span>
             </div>
           </div>
@@ -93,12 +94,12 @@ function Footer() {
         {/* Main Links Grid */}
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
           {/* Company Links */}
-          <div className="col-span-1">
+          <div>
             <h3 className="text-sm font-semibold text-foreground">Company</h3>
             <ul className="mt-4 space-y-2.5">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -107,12 +108,12 @@ function Footer() {
           </div>
 
           {/* Services Links */}
-          <div className="col-span-1">
+          <div>
             <h3 className="text-sm font-semibold text-foreground">Services</h3>
             <ul className="mt-4 space-y-2.5">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -121,12 +122,12 @@ function Footer() {
           </div>
 
           {/* Resources Links */}
-          <div className="col-span-1">
+          <div>
             <h3 className="text-sm font-semibold text-foreground">Resources</h3>
             <ul className="mt-4 space-y-2.5">
               {resourceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -135,12 +136,12 @@ function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="col-span-1">
+          <div>
             <h3 className="text-sm font-semibold text-foreground">Legal</h3>
             <ul className="mt-4 space-y-2.5">
               {legalLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -149,12 +150,12 @@ function Footer() {
           </div>
 
           {/* Connect Links */}
-          <div className="col-span-1">
+          <div>
             <h3 className="text-sm font-semibold text-foreground">Connect</h3>
             <ul className="mt-4 space-y-2.5">
               {connectLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -172,9 +173,9 @@ function Footer() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full bg-background/50 border-border/50 focus:border-primary/50"
+                className="w-full bg-background border-border focus:border-foreground"
               />
-              <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
+              <Button type="submit" className="w-full bg-foreground text-background hover:bg-foreground/90">
                 Subscribe
               </Button>
             </form>
@@ -182,14 +183,14 @@ function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 flex flex-col items-center space-y-4 border-t border-border/50 pt-8 sm:flex-row sm:justify-between sm:space-y-0">
+        <div className="mt-12 flex flex-col items-center space-y-4 border-t border-border pt-8 sm:flex-row sm:justify-between sm:space-y-0">
           {/* Social Links */}
           <div className="flex space-x-4">
             {socialLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -209,7 +210,7 @@ function Footer() {
               <Link
                 key={link.label}
                 to={link.to}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
@@ -217,10 +218,6 @@ function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent"></div>
     </footer>
   );
 }

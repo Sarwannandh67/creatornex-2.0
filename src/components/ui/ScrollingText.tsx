@@ -24,7 +24,7 @@ export function ScrollingText({
 
   return (
     <div className={cn(
-      "sticky top-16 z-40 w-full overflow-hidden bg-background py-2 border-b border-border",
+      "fixed top-24 z-40 w-full overflow-hidden bg-background/100 py-3 ",
       className
     )}>
       <div className="flex items-center justify-center">
