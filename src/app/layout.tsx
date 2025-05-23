@@ -1,6 +1,6 @@
-import { ThemeProvider } from '@/components/ThemeProvider'
+import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import ClientWrapper from '@/components/ClientWrapper'
-import '@/styles/globals.css'
+import '@/app/globals.css'
 
 export const metadata = {
   title: 'CreatorNex - Powering Your Social & AI Presence',
@@ -15,12 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider defaultTheme="light" storageKey="creatornex-theme">
           <ClientWrapper />
           {children}
         </ThemeProvider>

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { useTheme } from "@/components/theme/ThemeProvider";
 
 const companyLinks = [
   { to: '/about', label: 'About Us' },
@@ -53,6 +54,7 @@ const socialLinks = [
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const { theme } = useTheme();
 
   return (
     <footer className="bg-background">
@@ -61,12 +63,9 @@ function Footer() {
         <div className="mb-8 sm:mb-12">
           <Link to="/" className="inline-block">
             <img
-              src="/logo.png"
+              src={theme === 'light' ? "/logo-light.png" : "/logo.png"}
               alt="CreatorNex"
-              width={120}
-              height={40}
-              className="h-8 sm:h-10 w-auto object-contain"
-              loading="eager"
+              className="h-10 w-auto"
             />
           </Link>
           <p className="mt-4 max-w-md text-sm sm:text-base text-muted-foreground">

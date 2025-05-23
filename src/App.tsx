@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
 import { Separator } from '@/components/ui/separator';
 import ClientWrapper from '@/components/ClientWrapper';
@@ -73,232 +72,224 @@ const App: React.FC = () => {
   return (
     <>
       <Preload />
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="dark"
-        enableSystem={false}
-        disableTransitionOnChange
-      >
-        <ErrorBoundary>
-          <div className="relative flex min-h-screen flex-col">
-            <SafeLazyComponent>
-              <Navbar />
-            </SafeLazyComponent>
-            <ScrollingText 
-              text="🎉 Welcome to CreatorNex! Transform your digital presence with our AI-powered solutions. Book a free consultation today! 🚀 | 🚀 We are Hiring !!! 🔥" 
-              buttonText="Apply Now"
-              onButtonClick={() => window.location.href = '/careers'}
-              speed="normal"
-            />
-            <main className="flex-grow">
-              <ErrorBoundary>
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <SafeLazyComponent>
-                        <Home />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/about"
-                    element={
-                      <SafeLazyComponent>
-                        <About />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/accessibility"
-                    element={
-                      <SafeLazyComponent>
-                        <Accessibility />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/ai-agents"
-                    element={
-                      <SafeLazyComponent>
-                        <AiAgents />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/blog/*"
-                    element={
-                      <SafeLazyComponent>
-                        <Blog />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/blog/:slug"
-                    element={
-                      <SafeLazyComponent>
-                        <BlogPost />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/book-demo"
-                    element={
-                      <SafeLazyComponent>
-                        <BookDemo />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/careers"
-                    element={
-                      <SafeLazyComponent>
-                        <Careers />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/club"
-                    element={
-                      <SafeLazyComponent>
-                        <Club />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/services/*"
-                    element={
-                      <SafeLazyComponent>
-                        <Services />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/services/:slug"
-                    element={
-                      <SafeLazyComponent>
-                        <ServiceDetail />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/contact"
-                    element={
-                      <SafeLazyComponent>
-                        <Contact />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/cookie-policy"
-                    element={
-                      <SafeLazyComponent>
-                        <CookiePolicy />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/portfolio/*"
-                    element={
-                      <SafeLazyComponent>
-                        <Portfolio />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/portfolio/:slug"
-                    element={
-                      <SafeLazyComponent>
-                        <PortfolioDetail />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/faqs"
-                    element={
-                      <SafeLazyComponent>
-                        <Faqs />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/privacy-policy"
-                    element={
-                      <SafeLazyComponent>
-                        <PrivacyPolicy />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/terms-of-service"
-                    element={
-                      <SafeLazyComponent>
-                        <TermsOfService />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/support"
-                    element={
-                      <SafeLazyComponent>
-                        <SupportPage />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/events"
-                    element={
-                      <SafeLazyComponent>
-                        <Events />
-                      </SafeLazyComponent>
-                    }
-                  />
-                  <Route
-                    path="/partner-program"
-                    element={
-                      <SafeLazyComponent>
-                        <PartnerProgram />
-                      </SafeLazyComponent>
-                    }
-                  />
-                </Routes>
-              </ErrorBoundary>
-            </main>
+      <ErrorBoundary>
+        <div className="relative flex min-h-screen flex-col">
+          <SafeLazyComponent>
+            <Navbar />
+          </SafeLazyComponent>
+          <ScrollingText 
+            text="🎉 Welcome to CreatorNex! Transform your digital presence with our AI-powered solutions. Book a free consultation today! 🚀 | 🚀 We are Hiring !!! 🔥" 
+            buttonText="Apply Now"
+            onButtonClick={() => window.location.href = '/careers'}
+            speed="normal"
+          />
+          <main className="flex-grow">
+            <ErrorBoundary>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <SafeLazyComponent>
+                      <Home />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/about"
+                  element={
+                    <SafeLazyComponent>
+                      <About />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/accessibility"
+                  element={
+                    <SafeLazyComponent>
+                      <Accessibility />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/ai-agents"
+                  element={
+                    <SafeLazyComponent>
+                      <AiAgents />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/blog/*"
+                  element={
+                    <SafeLazyComponent>
+                      <Blog />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/blog/:slug"
+                  element={
+                    <SafeLazyComponent>
+                      <BlogPost />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/book-demo"
+                  element={
+                    <SafeLazyComponent>
+                      <BookDemo />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/careers"
+                  element={
+                    <SafeLazyComponent>
+                      <Careers />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/club"
+                  element={
+                    <SafeLazyComponent>
+                      <Club />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/services/*"
+                  element={
+                    <SafeLazyComponent>
+                      <Services />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/services/:slug"
+                  element={
+                    <SafeLazyComponent>
+                      <ServiceDetail />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/contact"
+                  element={
+                    <SafeLazyComponent>
+                      <Contact />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/cookie-policy"
+                  element={
+                    <SafeLazyComponent>
+                      <CookiePolicy />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/portfolio/*"
+                  element={
+                    <SafeLazyComponent>
+                      <Portfolio />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/portfolio/:slug"
+                  element={
+                    <SafeLazyComponent>
+                      <PortfolioDetail />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/faqs"
+                  element={
+                    <SafeLazyComponent>
+                      <Faqs />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/privacy-policy"
+                  element={
+                    <SafeLazyComponent>
+                      <PrivacyPolicy />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/terms-of-service"
+                  element={
+                    <SafeLazyComponent>
+                      <TermsOfService />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/support"
+                  element={
+                    <SafeLazyComponent>
+                      <SupportPage />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/events"
+                  element={
+                    <SafeLazyComponent>
+                      <Events />
+                    </SafeLazyComponent>
+                  }
+                />
+                <Route
+                  path="/partner-program"
+                  element={
+                    <SafeLazyComponent>
+                      <PartnerProgram />
+                    </SafeLazyComponent>
+                  }
+                />
+              </Routes>
+            </ErrorBoundary>
+          </main>
 
-            <div className="container mx-auto max-w-screen-xl px-6">
-              <Separator className="my-4 bg-black" />
-            </div>
-
-            <SafeLazyComponent>
-              <Footer />
-            </SafeLazyComponent>
+          <div className="container mx-auto max-w-screen-xl px-6">
+            <Separator className="my-4 bg-border" />
           </div>
 
-          <SafeLazyComponent fallback={null}>
-            <ScrollToTopComponent />
+          <SafeLazyComponent>
+            <Footer />
           </SafeLazyComponent>
+        </div>
 
-          <SafeLazyComponent fallback={null}>
-            <ClientWrapper />
-          </SafeLazyComponent>
+        <SafeLazyComponent fallback={null}>
+          <ScrollToTopComponent />
+        </SafeLazyComponent>
 
-          <BodyAttributesWrapper />
+        <SafeLazyComponent fallback={null}>
+          <ClientWrapper />
+        </SafeLazyComponent>
 
-          {/* PopupAlert Component - Added here so it appears globally */}
-          <PopupAlert 
-            title="🚀We are Hiring!!🔥"
-            message="Ready to unleash your creativity? Join with other creators building amazing content with our platform.
-            Get started today and transform your ideas into reality!  --CreatorNex LLc"
-            showOnLoad={true}
-            ctaText="Apply Now"
-            cancelText="Thanks"
-            onCtaClick={() => {
-              // Navigate to signup or main CTA action
-              window.location.href = '/careers';
-            }}
-          />
-        </ErrorBoundary>
-      </ThemeProvider>
+        <BodyAttributesWrapper />
+
+        {/* PopupAlert Component - Added here so it appears globally */}
+        <PopupAlert 
+          title="🚀We are Hiring!!🔥"
+          message="Ready to unleash your creativity? Join with other creators building amazing content with our platform.
+          Get started today and transform your ideas into reality!  --CreatorNex LLc"
+          showOnLoad={true}
+          ctaText="Apply Now"
+          cancelText="Thanks"
+          onCtaClick={() => {
+            window.location.href = '/careers';
+          }}
+        />
+      </ErrorBoundary>
     </>
   );
 };

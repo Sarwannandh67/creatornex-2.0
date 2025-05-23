@@ -24,7 +24,7 @@ export function ScrollingText({
 
   return (
     <div className={cn(
-      "sticky top-16 z-40 w-full overflow-hidden bg-black py-2 border-b border-gray-800",
+      "sticky top-16 z-40 w-full overflow-hidden bg-background py-2 border-b border-border",
       className
     )}>
       <div className="flex items-center justify-center">
@@ -32,11 +32,11 @@ export function ScrollingText({
           "flex items-center whitespace-nowrap",
           speedClasses[speed]
         )}>
-          <span className="text-sm font-medium text-white">{text}</span>
+          <span className="text-sm font-medium text-foreground">{text}</span>
           {buttonText && (
             <Button 
               variant="link" 
-              className="text-red-500 hover:text-red-400 ml-4 h-auto p-0 font-medium"
+              className="text-accent hover:text-accent-accessible ml-4 h-auto p-0 font-medium"
               onClick={onButtonClick}
             >
               {buttonText}
