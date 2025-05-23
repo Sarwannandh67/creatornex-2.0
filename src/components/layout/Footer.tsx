@@ -56,14 +56,23 @@ function Footer() {
   const currentYear = new Date().getFullYear();
   const { theme } = useTheme();
 
+  const lightThemeBackground = `
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(147, 51, 234, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(147, 51, 234, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 20% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #f8f9fa 20%, #f1f3f5 40%, #e9ecef 60%, #ffffff 100%)
+  `;
+
+  const darkThemeBackground = `
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(88, 28, 135, 0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 20% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 60%),
+    linear-gradient(180deg, #050505 0%, #0a0a0f 20%, #1a1127 40%, #0f0f1a 60%, #000000 100%)
+  `;
+
   return (
     <footer className="relative" style={{
-      background: `
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(88, 28, 135, 0.3) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse 100% 80% at 20% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 60%),
-        linear-gradient(180deg, #050505 0%, #0a0a0f 20%, #1a1127 40%, #0f0f1a 60%, #000000 100%)
-      `
+      background: theme === 'light' ? lightThemeBackground : darkThemeBackground
     }}>
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16">
         {/* Top Section with Logo and Contact */}
@@ -173,7 +182,7 @@ function Footer() {
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full bg-background border-border focus:border-foreground"
+                className="w-full bg-background/50 border-border focus:border-foreground"
               />
               <Button type="submit" className="w-full bg-foreground text-background hover:bg-foreground/90">
                 Subscribe
@@ -183,7 +192,7 @@ function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 flex flex-col items-center space-y-4 border-t border-border pt-8 sm:flex-row sm:justify-between sm:space-y-0">
+        <div className="mt-12 flex flex-col items-center space-y-4 border-t border-border/50 pt-8 sm:flex-row sm:justify-between sm:space-y-0">
           {/* Social Links */}
           <div className="flex space-x-4">
             {socialLinks.map((link) => (
