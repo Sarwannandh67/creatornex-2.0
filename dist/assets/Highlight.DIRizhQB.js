@@ -1,0 +1,1 @@
+import{j as e}from"./vendor-react.qw0I3tj2.js";import{c as r}from"./index.CzlnS05X.js";function a({children:a,className:s,...c}){return e.jsx("span",{className:r("text-accent",s),...c,children:a})}export{a as H};

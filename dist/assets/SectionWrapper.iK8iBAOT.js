@@ -1,0 +1,1 @@
+import{j as e}from"./vendor-react.qw0I3tj2.js";import{c as a}from"./index.CzlnS05X.js";function r({children:r,className:s,containerClassName:n,...c}){return e.jsx("section",{className:a("w-full py-12 md:py-20 lg:py-24",s),...c,children:e.jsx("div",{className:a("container mx-auto max-w-screen-xl px-6",n),children:r})})}export{r as S};
