@@ -19,99 +19,95 @@ const itemVariants = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: {
-      duration: 0.5
-    }
+    transition: { duration: 0.5 }
   }
 };
 
 const stats = [
-  { 
-    icon: Bot, 
-    label: "AI-Powered Agents", 
+  {
+    icon: Bot,
+    label: "AI-Powered Agents",
     value: "24/7",
     description: "Round-the-clock AI assistance for your marketing needs"
   },
-  { 
-    icon: Users, 
-    label: "Active Influencers", 
+  {
+    icon: Users,
+    label: "Active Influencers",
     value: "15+",
-    description: "Carefully vetted content creators ready to promote your brand"
+    description: "Vetted content creators ready to promote your brand"
   },
-  { 
-    icon: Target, 
-    label: "Campaign Success", 
+  {
+    icon: Target,
+    label: "Campaign Success",
     value: "90%",
-    description: "Proven track record of successful marketing campaigns"
+    description: "Proven success rate across all campaigns"
   },
-  { 
-    icon: Rocket, 
-    label: "ROI Increase", 
+  {
+    icon: Rocket,
+    label: "ROI Increase",
     value: "3x",
-    description: "Average return on investment for our clients"
+    description: "Triple average returns for our clients"
   }
 ];
 
 export default function StatsSection() {
   useEffect(() => {
-    console.log('StatsSection mounted');
-    console.log('Stats data:', stats);
+    console.log("StatsSection mounted");
+    console.log("Stats data:", stats);
   }, []);
 
-  if (!stats || stats.length === 0) {
-    console.error('No stats data available');
-    return null;
-  }
-
   return (
-    <AnimatePresence>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 max-w-3xl mx-auto relative z-10 mt-4 sm:mt-8"
-      >
-        {stats.map((stat, index) => {
-          if (!stat.icon || !stat.label || !stat.value) {
-            console.error('Invalid stat data:', stat);
-            return null;
-          }
+    <section className="py-16 bg-background text-foreground relative z-10">
+      <div className="max-w-4xl mx-auto text-center px-4 mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 sm:mb-4">
+          Trusted by Brands & Creators
+        </h2>
+        <p className="text-muted-foreground text-sm sm:text-base md:text-lg">
+          We use smart AI agents and influencer collaboration to help brands scale better.
+        </p>
+      </div>
 
-          return (
+      <AnimatePresence>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 px-4 max-w-4xl mx-auto"
+        >
+          {stats.map((stat, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className="p-2 sm:p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border/50 md:hover:border-primary/50 transition-all group"
-              whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.2 }
-              }}
+              className="p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl border border-border/30 md:hover:border-primary/40 transition-all group flex flex-col items-center text-center"
+              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
-                className="md:block"
+                className="mb-2 sm:mb-3"
               >
-                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-1 sm:mb-2 mx-auto md:group-hover:text-accent transition-colors" />
+                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary md:group-hover:text-accent transition-colors" />
               </motion.div>
-              <p className="font-bold text-lg sm:text-xl md:text-2xl text-foreground">
+
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-1 sm:mb-2">
                 {stat.value}
               </p>
-              <p className="text-xs sm:text-sm text-muted-foreground md:group-hover:text-accent transition-colors">
+              <p className="text-xs sm:text-sm md:text-base font-medium text-muted-foreground md:group-hover:text-accent transition-colors">
                 {stat.label}
               </p>
+
               <motion.p
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.2 }}
-                className="hidden md:block text-xs text-muted-foreground mt-2"
+                className="hidden md:block text-xs sm:text-sm text-muted-foreground mt-1 sm:mt-2"
               >
                 {stat.description}
               </motion.p>
             </motion.div>
-          );
-        })}
-      </motion.div>
-    </AnimatePresence>
+          ))}
+        </motion.div>
+      </AnimatePresence>
+    </section>
   );
-} 
+}
