@@ -103,31 +103,13 @@ export default defineConfig({
     reportCompressedSize: true,
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-              return 'vendor-react';
-            }
-            if (id.includes('@radix-ui/react-')) {
-              return 'vendor-ui';
-            }
-            if (id.includes('framer-motion')) {
-              return 'vendor-motion';
-            }
-            if (id.includes('lucide-react')) {
-              return 'vendor-icons';
-            }
-            if (id.includes('react-hook-form') || id.includes('@hookform/resolvers') || id.includes('zod')) {
-              return 'vendor-forms';
-            }
-            if (id.includes('date-fns') || id.includes('clsx') || id.includes('tailwind-merge')) {
-              return 'vendor-utils';
-            }
-            if (id.includes('recharts') || id.includes('victory') || id.includes('d3')) {
-              return 'vendor-charts';
-            }
-            return 'vendor';
-          }
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-ui': ['@radix-ui/react-dropdown-menu', '@radix-ui/react-dialog', '@radix-ui/react-toast'],
+          'vendor-motion': ['framer-motion'],
+          'vendor-icons': ['lucide-react'],
+          'vendor-forms': ['react-hook-form', '@hookform/resolvers', 'zod'],
+          'vendor-utils': ['date-fns', 'clsx', 'tailwind-merge'],
         },
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js',
