@@ -2,74 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages -->
   <url>
-    <loc>https://creatornex.site/</loc>
+    <loc>https://creatornex.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/about</loc>
+    <loc>https://creatornex.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/services</loc>
+    <loc>https://creatornex.com/services</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/portfolio</loc>
+    <loc>https://creatornex.com/portfolio</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/blog</loc>
+    <loc>https://creatornex.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/careers</loc>
+    <loc>https://creatornex.com/careers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/contact</loc>
+    <loc>https://creatornex.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/book-demo</loc>
+    <loc>https://creatornex.com/book-demo</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Support & Legal Pages -->
   <url>
-    <loc>https://creatornex.site/faqs</loc>
+    <loc>https://creatornex.com/faqs</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/support</loc>
+    <loc>https://creatornex.com/support</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/privacy-policy</loc>
+    <loc>https://creatornex.com/privacy-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/terms-of-service</loc>
+    <loc>https://creatornex.com/terms-of-service</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/cookie-policy</loc>
+    <loc>https://creatornex.com/cookie-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://creatornex.site/accessibility</loc>
+    <loc>https://creatornex.com/accessibility</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

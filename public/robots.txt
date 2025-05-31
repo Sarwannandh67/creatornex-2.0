@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://creatornex.site/sitemap.xml 
+Sitemap: https://creatornex.com/sitemap.xml 
