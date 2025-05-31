@@ -95,7 +95,7 @@ function Footer() {
             <div className="hidden sm:block h-4 w-px bg-border" />
             <div className="flex items-center">
               <span className="text-foreground">✉️</span>
-              <span className="ml-2 text-sm text-muted-foreground">creatornex.main@gmail.com</span>
+              <span className="ml-2 text-sm text-muted-foreground">admin@creatornex.com</span>
             </div>
           </div>
         </div>

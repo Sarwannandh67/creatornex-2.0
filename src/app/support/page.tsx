@@ -169,7 +169,7 @@ export default function SupportPage() {
             <div className="space-y-4 text-muted-foreground text-lg">
               <div className="flex items-center">
                 <Mail className="mr-3 h-6 w-6 text-accent" />
-                <span>Email: creatornex.main@gmail.com</span>
+                <span>Email: admin@creatornex.com</span>
               </div>
               {/* Assuming you have a WhatsApp link */}
               <div className="flex items-center">

@@ -58,7 +58,7 @@ export default function ContactPage() {
                 </p>
                 <p className="flex items-start">
                   <Mail className="h-5 w-5 text-accent mr-3 mt-1 flex-shrink-0" />
-                  <a href="mailto:creatornex.main@gmail.com" className="hover:text-accent">creatornex.main@gmail.com</a>
+                  <a href="mailto:admin@creatornex.com" className="hover:text-accent">admin@creatornex.com</a>
                 </p>
                 <p className="flex items-start">
                   <Phone className="h-5 w-5 text-accent mr-3 mt-1 flex-shrink-0" />
