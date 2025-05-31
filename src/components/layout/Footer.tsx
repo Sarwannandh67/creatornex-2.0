@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, Github } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useTheme } from "@/components/theme/ThemeProvider";
@@ -36,20 +36,43 @@ const legalLinks = [
   { to: '/accessibility', label: 'Accessibility' },
 ];
 
-const connectLinks = [
-  { to: '/contact', label: 'Contact Us' },
-  { to: '/support', label: 'Support' },
-  { to: '/book-demo', label: 'Book a Demo' },
-  { to: '/partner-program', label: 'Partner Program' },
-  { to: '/events', label: 'Events' },
-];
+interface SocialLink {
+  href: string;
+  icon: React.ElementType;
+  label: string;
+}
 
-const socialLinks = [
-  { href: 'https://www.facebook.com/profile.php?id=61576754819007', icon: Facebook },
-  { href: 'https://twitter.com/creatornex', icon: Twitter },
-  { href: 'https://instagram.com/creator.nex', icon: Instagram },
-  { href: 'https://linkedin.com/company/creatornex', icon: Linkedin },
-  { href: 'https://github.com/creatornex', icon: Github },
+const socialLinks: SocialLink[] = [
+  { 
+    href: 'https://www.facebook.com/profile.php?id=61576858113996', 
+    icon: Facebook,
+    label: 'Follow us on Facebook'
+  },
+  { 
+    href: 'https://twitter.com/creatornex', 
+    icon: Twitter,
+    label: 'Follow us on Twitter'
+  },
+  { 
+    href: 'https://instagram.com/creator.nex', 
+    icon: Instagram,
+    label: 'Follow us on Instagram'
+  },
+  { 
+    href: 'https://linkedin.com/company/creatornex', 
+    icon: Linkedin,
+    label: 'Follow us on LinkedIn'
+  },
+  { 
+    href: 'https://www.youtube.com/@creatornex', 
+    icon: Youtube,
+    label: 'Subscribe on YouTube'
+  },
+  { 
+    href: 'https://wa.me/917416086946', 
+    icon: MessageCircle,
+    label: 'Chat on WhatsApp'
+  },
 ];
 
 function Footer() {
@@ -158,20 +181,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Connect Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">Connect</h3>
-            <ul className="mt-4 space-y-2.5">
-              {connectLinks.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Newsletter Signup */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
             <h3 className="text-sm font-semibold text-foreground">Stay Updated</h3>
@@ -193,21 +202,6 @@ function Footer() {
 
         {/* Bottom Section */}
         <div className="mt-12 flex flex-col items-center space-y-4 border-t border-border/50 pt-8 sm:flex-row sm:justify-between sm:space-y-0">
-          {/* Social Links */}
-          <div className="flex space-x-4">
-            {socialLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <link.icon className="h-5 w-5" />
-              </a>
-            ))}
-          </div>
-
           {/* Copyright */}
           <p className="text-sm text-center text-muted-foreground order-3 sm:order-2">
             © {currentYear} CreatorNex LLc. All rights reserved.

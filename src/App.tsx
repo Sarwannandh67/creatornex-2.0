@@ -7,6 +7,7 @@ import BodyAttributesWrapper from '@/components/BodyAttributesWrapper';
 import { Preload } from './components/Preload';
 import PopupAlert from './components/PopupAlert';
 import { ScrollingText } from '@/components/ui/ScrollingText';
+import { Toaster } from 'sonner';
 
 // Lazy load layout components
 const Navbar = lazy(() => import('@/components/layout/Navbar'));
@@ -71,6 +72,7 @@ const App: React.FC = () => {
 
   return (
     <>
+      <Toaster position="top-center" richColors />
       <Preload />
       <ErrorBoundary>
         <div className="relative flex min-h-screen flex-col">

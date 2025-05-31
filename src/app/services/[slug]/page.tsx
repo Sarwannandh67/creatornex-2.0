@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, CheckCircle, Bot, Zap, Brain, Users as UsersIcon, type LucideIcon, Search, BarChart3, Link2, Settings } from 'lucide-react'; // Added specific icons
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { LazyImage } from '@/components/shared/LazyImage';
+import { SocialShare } from '@/components/shared/SocialShare';
+import { FloatingShareButton } from '@/components/shared/FloatingShareButton';
 
 interface ServiceUseCase {
   icon: LucideIcon;
@@ -253,8 +255,12 @@ export default function ServicePage() {
 
   return (
     <>
+      <FloatingShareButton 
+        title={service.title}
+        description={service.description}
+      />
       <Helmet>
-        <title>{service.title} - CreatorNex</title>
+        <title>{service.title} | CreatorNex</title>
         <meta name="description" content={service.description} />
       </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
@@ -266,9 +272,27 @@ export default function ServicePage() {
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               {service.title.split(' ').slice(0, -1).join(' ')} <Highlight>{service.title.split(' ').pop()}</Highlight>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground md:text-xl">
+            <p className="text-xl text-muted-foreground mb-8">
               {service.description}
             </p>
+
+            <div className="flex justify-end mb-8">
+              <SocialShare 
+                title={service.title}
+                description={service.description}
+              />
+            </div>
+
+            {service.image && (
+              <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-xl mb-10">
+                <LazyImage 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover rounded-2xl" 
+                  data-ai-hint={service.imageHint}
+                />
+              </div>
+            )}
           </div>
         </div>
       </SectionWrapper>

@@ -1,13 +1,14 @@
-
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ArrowLeft, CalendarDays, UserCircle, MessageCircle, Share2, ThumbsUp, Twitter, Linkedin, Facebook } from 'lucide-react';
+import { ArrowLeft, CalendarDays, UserCircle, MessageCircle } from 'lucide-react';
 import { allBlogPosts as posts } from '../page'; // Import placeholder posts
 import type { BlogArticleStub } from '@/types/index'; // Assuming this type includes author
+import { SocialShare } from '@/components/shared/SocialShare';
+import { FloatingShareButton } from '@/components/shared/FloatingShareButton';
 
 // Placeholder for related posts - in a real app, this would be dynamic
 const relatedPosts = posts.slice(0, 2).filter(p => p.slug !== posts[0].slug); // Example: first two other posts
@@ -41,6 +42,10 @@ export default function SingleBlogPage() {
 
   return (
     <>
+      <FloatingShareButton 
+        title={post.title}
+        description={post.excerpt}
+      />
       <SectionWrapper className="pt-24 md:pt-32 bg-gradient-to-b from-background to-card">
         <div className="max-w-3xl mx-auto">
           <Link to="/blog" className="inline-flex items-center text-accent hover:text-primary mb-6 text-sm group">
@@ -92,14 +97,14 @@ export default function SingleBlogPage() {
             <blockquote>"This is a blockquote. It stands out from the rest of the content."</blockquote>
           </article>
 
-          {/* Share Buttons Placeholder */}
+          {/* Share Buttons */}
           <div className="mt-12 pt-8 border-t border-border">
             <h3 className="text-lg font-semibold text-foreground mb-3">Share this post:</h3>
-            <div className="flex space-x-3">
-              <Button variant="outline" size="icon" className="rounded-full"><Twitter className="h-5 w-5" /></Button>
-              <Button variant="outline" size="icon" className="rounded-full"><Linkedin className="h-5 w-5" /></Button>
-              <Button variant="outline" size="icon" className="rounded-full"><Facebook className="h-5 w-5" /></Button>
-            </div>
+            <SocialShare 
+              title={post.title}
+              description={post.excerpt}
+              className="mt-2"
+            />
           </div>
 
           {/* Comments Section Placeholder */}
