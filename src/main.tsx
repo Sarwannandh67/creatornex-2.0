@@ -6,6 +6,16 @@ import { ThemeProvider } from './components/theme/ThemeProvider';
 import App from './App';
 import './app/globals.css';
 
+// Define the future flags type
+type RouterFutureFlags = {
+  v7_fetcherPersist: boolean;
+  v7_normalizeFormMethod: boolean;
+  v7_partialHydration: boolean;
+  v7_relativeSplatPath: boolean;
+  v7_skipActionErrorRevalidation: boolean;
+  v7_startTransition: boolean;
+};
+
 const router = createBrowserRouter(
   [
     {
@@ -20,9 +30,8 @@ const router = createBrowserRouter(
       v7_partialHydration: true,
       v7_relativeSplatPath: true,
       v7_skipActionErrorRevalidation: true,
-      // @ts-ignore - v7_startTransition is a valid future flag but not yet in the type definitions
       v7_startTransition: true,
-    } as any,
+    } as RouterFutureFlags,
   }
 );
 

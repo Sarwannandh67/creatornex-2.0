@@ -36,7 +36,7 @@ export default defineConfig({
     compression({
       algorithm: 'gzip',
       ext: '.gz',
-      threshold: 1024, // Only compress files larger than 1KB
+      threshold: 1024,
       deleteOriginFile: false,
       filter: /\.(js|mjs|json|css|html)$/i,
       verbose: true
@@ -53,7 +53,7 @@ export default defineConfig({
       open: true,
       gzipSize: true,
       brotliSize: true,
-      template: 'treemap' // gives a more detailed visualization
+      template: 'treemap'
     }),
   ],
   worker: {
@@ -93,11 +93,10 @@ export default defineConfig({
     minifyWhitespace: true,
     treeShaking: true,
   },
-  // Optimize build
   build: {
     cssCodeSplit: true,
     chunkSizeWarningLimit: 1000,
-    target: 'esnext', // Modern browsers for better performance
+    target: 'esnext',
     modulePreload: {
       polyfill: true,
     },
@@ -133,33 +132,21 @@ export default defineConfig({
         chunkFileNames: 'assets/[name].[hash].js',
         entryFileNames: 'assets/[name].[hash].js',
         assetFileNames: 'assets/[name].[hash].[ext]',
-        compact: true,
-        generatedCode: {
-          preset: 'es2015',
-          symbols: false,
-          constBindings: true,
-        },
-      },
-      treeshake: {
-        moduleSideEffects: false,
-        propertyReadSideEffects: false,
-        tryCatchDeoptimization: false,
       },
     },
-    // Minify options
     minify: 'terser',
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
         pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.trace'],
-        passes: 3,
-        unsafe: true,
-        unsafe_math: true,
-        unsafe_methods: true,
-        unsafe_proto: true,
-        unsafe_regexp: true,
-        pure_getters: true,
+        passes: 2,
+        unsafe: false,
+        unsafe_math: false,
+        unsafe_methods: false,
+        unsafe_proto: false,
+        unsafe_regexp: false,
+        pure_getters: false,
         reduce_vars: true,
         join_vars: true,
         sequences: true,
@@ -171,23 +158,21 @@ export default defineConfig({
         reduce_funcs: true,
       },
       mangle: {
-        properties: {
-          regex: /^_/,
-        },
-        toplevel: true,
-        module: true,
+        properties: false,
+        toplevel: false,
+        module: false,
       },
       format: {
         comments: false,
         ecma: 2020,
         wrap_iife: true,
-        wrap_func_args: true,
+        wrap_func_args: false,
       },
-      module: true,
-      toplevel: true,
-      keep_classnames: false,
-      keep_fnames: false,
+      module: false,
+      toplevel: false,
+      keep_classnames: true,
+      keep_fnames: true,
     },
-    sourcemap: false,
+    sourcemap: true,
   },
 });
