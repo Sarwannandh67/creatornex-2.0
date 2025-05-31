@@ -9,7 +9,6 @@ const companyLinks = [
   { to: '/portfolio', label: 'Portfolio' },
   { to: '/team', label: 'Team' },
   { to: '/careers', label: 'Careers' },
-  { to: '/contact', label: 'Contact' },
 ];
 
 const serviceLinks = [
@@ -34,6 +33,14 @@ const legalLinks = [
   { to: '/terms-of-service', label: 'Terms of Service' },
   { to: '/cookie-policy', label: 'Cookie Policy' },
   { to: '/accessibility', label: 'Accessibility' },
+];
+
+const quickLinks = [
+  { to: '/partner-program', label: 'Partner Program' },
+  { to: '/book-demo', label: 'Book Demo' },
+  { to: '/events', label: 'Events' },
+  { to: '/support', label: 'Support' },
+  { to: '/contact', label: 'Contact Us' },
 ];
 
 interface SocialLink {
@@ -124,14 +131,28 @@ function Footer() {
         </div>
 
         {/* Main Links Grid */}
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-3 lg:grid-cols-7">
           {/* Company Links */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Company</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h3 className="text-xs sm:text-sm font-semibold text-foreground">Company</h3>
+            <ul className="mt-2 sm:mt-4 space-y-1.5 sm:space-y-2.5">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to={link.to} className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xs sm:text-sm font-semibold text-foreground">Quick Links</h3>
+            <ul className="mt-2 sm:mt-4 space-y-1.5 sm:space-y-2.5">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <Link to={link.to} className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -141,11 +162,11 @@ function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Services</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h3 className="text-xs sm:text-sm font-semibold text-foreground">Services</h3>
+            <ul className="mt-2 sm:mt-4 space-y-1.5 sm:space-y-2.5">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to={link.to} className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -155,11 +176,11 @@ function Footer() {
 
           {/* Resources Links */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Resources</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h3 className="text-xs sm:text-sm font-semibold text-foreground">Resources</h3>
+            <ul className="mt-2 sm:mt-4 space-y-1.5 sm:space-y-2.5">
               {resourceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to={link.to} className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -169,11 +190,11 @@ function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Legal</h3>
-            <ul className="mt-4 space-y-2.5">
+            <h3 className="text-xs sm:text-sm font-semibold text-foreground">Legal</h3>
+            <ul className="mt-2 sm:mt-4 space-y-1.5 sm:space-y-2.5">
               {legalLinks.map((link) => (
                 <li key={link.label}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  <Link to={link.to} className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -183,17 +204,17 @@ function Footer() {
 
           {/* Newsletter Signup */}
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-            <h3 className="text-sm font-semibold text-foreground">Stay Updated</h3>
-            <p className="mt-4 text-sm text-muted-foreground">
+            <h3 className="text-xs sm:text-sm font-semibold text-foreground">Stay Updated</h3>
+            <p className="mt-2 sm:mt-4 text-xs sm:text-sm text-muted-foreground">
               Subscribe to our newsletter for the latest updates on digital innovation and AI services.
             </p>
-            <form className="mt-4 space-y-2">
+            <form className="mt-2 sm:mt-4 space-y-2">
               <Input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full bg-background/50 border-border focus:border-foreground"
+                className="w-full h-8 sm:h-9 text-xs sm:text-sm bg-background/50 border-border focus:border-foreground"
               />
-              <Button type="submit" className="w-full bg-foreground text-background hover:bg-foreground/90">
+              <Button type="submit" className="w-full h-8 sm:h-9 text-xs sm:text-sm bg-foreground text-background hover:bg-foreground/90">
                 Subscribe
               </Button>
             </form>
@@ -201,19 +222,35 @@ function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 flex flex-col items-center space-y-4 border-t border-border/50 pt-8 sm:flex-row sm:justify-between sm:space-y-0">
+        <div className="mt-6 sm:mt-12 flex flex-col items-center space-y-3 sm:space-y-4 border-t border-border/50 pt-6 sm:pt-8 sm:flex-row sm:justify-between sm:space-y-0">
           {/* Copyright */}
-          <p className="text-sm text-center text-muted-foreground order-3 sm:order-2">
+          <p className="text-xs sm:text-sm text-center text-muted-foreground order-3 sm:order-1">
             © {currentYear} CreatorNex LLc. All rights reserved.
           </p>
 
+          {/* Social Media Links */}
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 order-2">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                aria-label={link.label}
+              >
+                <link.icon className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
+              </a>
+            ))}
+          </div>
+
           {/* Bottom Links */}
-          <div className="flex flex-wrap justify-center gap-4 order-2 sm:order-3">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 order-1 sm:order-3">
             {legalLinks.map((link) => (
               <Link
                 key={link.label}
                 to={link.to}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </Link>
