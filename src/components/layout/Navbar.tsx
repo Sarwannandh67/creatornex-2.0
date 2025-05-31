@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
         <Link to="/" className="flex items-center">
           <img 
             src={theme === 'light' ? "/logo-light.png" : "/logo.png"} 
-            alt="CreatorNex" 
+            alt="CreatorNex LLc" 
             className="h-8 w-auto" 
           />
         </Link>

@@ -80,7 +80,7 @@ function Footer() {
           <Link to="/" className="inline-block">
             <img
               src={theme === 'light' ? "/logo-light.png" : "/logo.png"}
-              alt="CreatorNex"
+              alt="CreatorNex LLc"
               className="h-10 w-auto"
             />
           </Link>
@@ -210,7 +210,7 @@ function Footer() {
 
           {/* Copyright */}
           <p className="text-sm text-center text-muted-foreground order-3 sm:order-2">
-            © {currentYear} CreatorNex. All rights reserved.
+            © {currentYear} CreatorNex LLc. All rights reserved.
           </p>
 
           {/* Bottom Links */}

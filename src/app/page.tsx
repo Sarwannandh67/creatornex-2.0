@@ -20,8 +20,8 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>CreatorNex - Powering Your Social & AI Presence</title>
-        <meta name="description" content="CreatorNex offers AI Agents, Social Media Marketing, Design, and Video services to elevate your brand. Book a free consult today!" />
+        <title>CreatorNex LLc - Powering Your Social & AI Presence</title>
+        <meta name="description" content="CreatorNex LLc offers AI Agents, Social Media Marketing, Design, and Video services to elevate your brand. Book a free consult today!" />
       </Helmet>
       <PageTransition>
         <HeroSection />

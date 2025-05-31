@@ -3,8 +3,8 @@ import ClientWrapper from '@/components/ClientWrapper'
 import '@/app/globals.css'
 
 export const metadata = {
-  title: 'CreatorNex - Powering Your Social & AI Presence',
-  description: 'CreatorNex offers AI Agents, Social Media Marketing, Design, and Video services to elevate your brand. Book a free consult today!',
+  title: 'CreatorNex LLc - Powering Your Social & AI Presence',
+  description: 'CreatorNex LLc offers AI Agents, Social Media Marketing, Design, and Video services to elevate your brand. Book a free consult today!',
 }
 
 export default function RootLayout({

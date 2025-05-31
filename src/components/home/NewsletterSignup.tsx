@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -32,7 +31,7 @@ export function NewsletterSignup() {
       <div className="max-w-md mx-auto text-left md:text-center"> {/* Adjusted max-width and text alignment for footer context */}
         {/* Mail icon removed from here */}
         <h3 className="text-lg font-semibold text-foreground mb-2"> {/* Changed h2 to h3, adjusted font size */}
-          Stay Ahead with CreatorNex
+          Stay Ahead with CreatorNex LLc
         </h3>
         <p className="mt-2 text-sm text-muted-foreground">
           Subscribe for insights on AI, social trends, and offers.
