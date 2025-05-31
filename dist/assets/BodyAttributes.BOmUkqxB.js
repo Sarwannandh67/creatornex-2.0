@@ -1,1 +1,0 @@
-import{r as t}from"./vendor-react.BCxwQg5J.js";import"./vendor.CNS5UKai.js";import"./vendor-utils.BbH7bj2Q.js";function r(){return t.useEffect((()=>{const t=document.body;t.setAttribute("data-new-gr-c-s-check-loaded","14.1235.0"),t.setAttribute("data-gr-ext-installed","")}),[]),null}r.displayName="BodyAttributes";export{r as default};
