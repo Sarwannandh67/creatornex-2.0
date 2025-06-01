@@ -35,15 +35,16 @@ const DesktopMenu: React.FC = () => {
   const { pathname } = useLocation();
 
   return (
-    <nav className="hidden md:flex items-center space-x-4">
+    <nav className="hidden 2xl:flex items-center space-x-3 2xl:space-x-5">
       {/* Home link */}
       <Button
         key="home"
         variant="ghost"
         asChild
+        size="default"
         className={cn(
-          "px-3 py-2",
-          pathname === '/' && "text-primary"
+          "px-3 sm:px-4 py-2 sm:py-2.5 text-base sm:text-lg font-medium",
+          pathname === '/' && "text-primary font-semibold"
         )}
       >
         <Link to="/">Home</Link>
@@ -52,16 +53,20 @@ const DesktopMenu: React.FC = () => {
       {/* Services dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className={cn(
-            "px-3 py-2",
-            pathname.startsWith('/services') && "text-primary"
-          )}>
-            Services <ChevronDown className="ml-1 h-4 w-4" />
+          <Button 
+            variant="ghost" 
+            size="default"
+            className={cn(
+              "px-3 sm:px-4 py-2 sm:py-2.5 text-base sm:text-lg font-medium",
+              pathname.startsWith('/services') && "text-primary font-semibold"
+            )}
+          >
+            Services <ChevronDown className="ml-1.5 h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="w-64 p-2">
           {servicesItems.map((item) => (
-            <DropdownMenuItem key={item.label} asChild>
+            <DropdownMenuItem key={item.label} asChild className="text-base p-2.5 rounded-md">
               <Link to={item.href}>{item.label}</Link>
             </DropdownMenuItem>
           ))}
@@ -74,9 +79,10 @@ const DesktopMenu: React.FC = () => {
           key={item.label}
           variant="ghost"
           asChild
+          size="default"
           className={cn(
-            "px-3 py-2",
-            pathname === item.href && "text-primary"
+            "px-3 sm:px-4 py-2 sm:py-2.5 text-base sm:text-lg font-medium",
+            pathname === item.href && "text-primary font-semibold"
           )}
         >
           <Link to={item.href}>{item.label}</Link>

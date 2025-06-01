@@ -49,36 +49,42 @@ const MobileMenu: React.FC = () => {
 
   return (
     <div className="md:hidden">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
         <ThemeToggle />
-        <Button variant="ghost" size="icon" onClick={toggleMenu} aria-label="Menu">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={toggleMenu} 
+          aria-label="Menu"
+          className="h-10 w-10 border border-border/50 hover:bg-accent"
+        >
           {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </Button>
       </div>
 
       {isMenuOpen && (
-        <div className="absolute left-0 top-16 z-50 w-full bg-background border-b p-4">
-          <nav className="flex flex-col space-y-4">
+        <div className="absolute left-0 top-[calc(4rem-1px)] z-50 w-full bg-background border-b shadow-md p-5">
+          <nav className="flex flex-col space-y-5">
             {menuItems.map((item) => (
               item.href === '/services' ?
-                <div key={item.label} className="space-y-2">
+                <div key={item.label} className="space-y-3">
                   <div 
-                    className={`flex items-center justify-between px-3 py-2 text-base cursor-pointer ${
-                      pathname.startsWith(item.href) ? 'text-primary font-medium' : 'text-foreground/80'
+                    className={`flex items-center justify-between px-3 py-2.5 text-lg rounded-md hover:bg-accent/50 cursor-pointer ${
+                      pathname.startsWith(item.href) ? 'text-primary font-semibold' : 'text-foreground/90'
                     }`}
                     onClick={toggleServices}
                   >
                     {item.label}
-                    {isServicesOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                    {isServicesOpen ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
                   </div>
                   
                   {isServicesOpen && (
-                    <div className="ml-4 space-y-2 border-l-2 border-border pl-4">
+                    <div className="ml-4 space-y-3 border-l-2 border-primary/30 pl-4">
                       {servicesItems.map(service => (
                         <Link
                           key={service.label}
                           to={service.href}
-                          className={`block px-3 py-2 text-sm ${
+                          className={`block px-3 py-2 text-base rounded-md hover:bg-accent/30 ${
                             pathname === service.href ? 'text-primary font-medium' : 'text-foreground/80'
                           }`}
                           onClick={toggleMenu}
@@ -93,8 +99,8 @@ const MobileMenu: React.FC = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className={`px-3 py-2 text-base ${
-                    pathname === item.href ? 'text-primary font-medium' : 'text-foreground/80'
+                  className={`px-3 py-2.5 text-lg rounded-md hover:bg-accent/50 ${
+                    pathname === item.href ? 'text-primary font-semibold' : 'text-foreground/90'
                   }`}
                   onClick={toggleMenu}
                 >
@@ -104,8 +110,12 @@ const MobileMenu: React.FC = () => {
             ))}
           </nav>
           
-          <Button asChild className="w-full mt-4">
-            <Link to="/book-demo" onClick={toggleMenu}>Book Demo</Link>
+          <Button 
+            asChild 
+            className="w-full mt-6 py-2.5 text-lg font-medium"
+            size="lg"
+          >
+            <Link to="/book-demo" onClick={toggleMenu}>Book A Call</Link>
           </Button>
         </div>
       )}

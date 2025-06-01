@@ -1,0 +1,57 @@
+/* Critical CSS for above-the-fold content */
+:root {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 10%;
+  --primary: 262 90% 65%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 262 90% 65%;
+  --accent-foreground: 0 0% 100%;
+  --border: 0 0% 90%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 100%;
+  --border: 0 0% 20%;
+}
+
+/* Critical layout styles */
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-harmonia), sans-serif;
+  line-height: 1.5;
+}
+
+/* Critical hero section styles */
+.hero-title {
+  font-family: var(--font-croogla), sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.highlight-text {
+  color: hsl(var(--accent));
+}
+
+/* Critical button styles */
+.hero-button {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-radius: 9999px;
+  padding: 1rem 2rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+/* Critical animation */
+@keyframes gradient-rotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.animate-gradient-rotate {
+  animation: gradient-rotate 20s linear infinite;
+} 
