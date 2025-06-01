@@ -9,7 +9,7 @@ export default function Home() {
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-          CreatorNex - India's Leading AI-Powered Influencer Marketing Platform
+          CreatorNex LLC - India's Leading AI-Powered Influencer Marketing Platform
         </h1>
         <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
           Transform your brand's digital presence with cutting-edge AI technology
@@ -62,7 +62,7 @@ export default function Home() {
           <div className="p-4 sm:p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
             <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Ready to Get Started?</h2>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">
-              Book a free consultation with our experts and discover how CreatorNex can transform your influencer marketing strategy.
+              Book a free consultation with our experts and discover how CreatorNex LLC can transform your influencer marketing strategy.
             </p>
             <Link to="/contact" className="inline-block w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto">Book Free Consultation</Button>

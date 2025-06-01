@@ -285,7 +285,7 @@ const App: React.FC = () => {
         <PopupAlert 
           title="🚀We are Hiring!!🔥"
           message="Ready to unleash your creativity? Join with other creators building amazing content with our platform.
-          Get started today and transform your ideas into reality!  --CreatorNex LLc"
+          Get started today and transform your ideas into reality!  --CreatorNex LLC"
           showOnLoad={true}
           ctaText="Apply Now"
           cancelText="Thanks"

@@ -32,7 +32,7 @@ const portfolioItems: PortfolioItem[] = [
       clientCompany: 'TechCorp Inc.',
       clientAvatarUrl: 'https://placehold.co/200x200.png',
       avatarHint: 'Professional headshot of Sarah Johnson',
-      quote: 'The AI recommendation engine developed by CreatorNex transformed our user experience. The team was exceptionally professional, delivering a solution that exceeded our expectations in both functionality and performance.'
+      quote: 'The AI recommendation engine developed by CreatorNex LLC transformed our user experience. The team was exceptionally professional, delivering a solution that exceeded our expectations in both functionality and performance.'
     }
   },
   {
@@ -73,7 +73,7 @@ const portfolioItems: PortfolioItem[] = [
       clientCompany: 'HealthTrack',
       clientAvatarUrl: 'https://placehold.co/200x200.png',
       avatarHint: 'Professional headshot of Michael Chen',
-      quote: 'Working with CreatorNex on our mobile app was a game-changer. Their technical expertise and attention to detail resulted in a product that our users love. The cross-platform approach saved us significant resources while delivering a premium experience.'
+      quote: 'Working with CreatorNex LLC on our mobile app was a game-changer. Their technical expertise and attention to detail resulted in a product that our users love. The cross-platform approach saved us significant resources while delivering a premium experience.'
     }
   }
 ];
@@ -120,7 +120,7 @@ export default function PortfolioDetailPage() {
   return (
     <>
       <Helmet>
-        <title>{title} | CreatorNex Portfolio</title>
+        <title>{title} | CreatorNex LLC Portfolio</title>
         <meta name="description" content={description} />
       </Helmet>
       

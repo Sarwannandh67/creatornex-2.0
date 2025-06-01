@@ -59,11 +59,10 @@ export function HeroSection() {
             Harness the power of AI agents to transform your brand's marketing strategy, connect with the right influencers, and drive measurable business growth.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+          <div className="flex flex-row gap-4 justify-center items-center w-full">
             <Button 
               asChild 
-              size="lg" 
-              className="hero-button rounded-full text-base sm:text-lg px-8 py-4 w-full sm:w-auto group"
+              className="hero-button rounded-full text-sm px-6 py-3 sm:text-base sm:px-8 sm:py-4 md:text-lg md:px-10 md:py-5 w-auto group"
             >
               <Link to="/book-demo">
                 Book Demo 
@@ -74,8 +73,7 @@ export function HeroSection() {
             <Button 
               asChild 
               variant="outline" 
-              size="lg" 
-              className="rounded-full text-base sm:text-lg px-8 py-4 w-full sm:w-auto border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+              className="rounded-full text-sm px-6 py-3 sm:text-base sm:px-8 sm:py-4 md:text-lg md:px-10 md:py-5 w-auto border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
             >
               <Link to="/portfolio">
                 View Our Work

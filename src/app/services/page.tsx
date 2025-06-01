@@ -98,7 +98,7 @@ export default function ServicesPage() {
             Our <Highlight>Services</Highlight>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground md:text-xl">
-            CreatorNex provides a comprehensive suite of digital and AI services designed to elevate your brand, streamline operations, and drive growth. We tailor solutions to meet your unique business needs.
+            CreatorNex LLC provides a comprehensive suite of digital and AI services designed to elevate your brand, streamline operations, and drive growth. We tailor solutions to meet your unique business needs.
           </p>
         </div>
       </SectionWrapper>
@@ -134,7 +134,7 @@ export default function ServicesPage() {
             Ready to <Highlight>Transform</Highlight> Your Business?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Let's discuss how CreatorNex can help you leverage our expertise to achieve your goals. Contact us today for a personalized consultation.
+            Let's discuss how CreatorNex LLC can help you leverage our expertise to achieve your goals. Contact us today for a personalized consultation.
           </p>
           <Button
             asChild

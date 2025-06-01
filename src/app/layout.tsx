@@ -14,8 +14,8 @@ const criticalCss = fs.readFileSync(
 );
 
 export const metadata = {
-  title: 'CreatorNex LLc - Powering Your Social & AI Presence',
-  description: 'CreatorNex LLc offers AI Agents, Social Media Marketing, Design, and Video services to elevate your brand. Book a free consult today!',
+  title: 'CreatorNex LLC - Powering Your Social & AI Presence',
+  description: 'CreatorNex LLC offers AI Agents, Social Media Marketing, Design, and Video services to elevate your brand. Book a free consult today!',
 }
 
 // Add cache control metadata

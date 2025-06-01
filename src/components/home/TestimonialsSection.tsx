@@ -10,7 +10,7 @@ import { useState } from 'react';
 const homePageTestimonials: Testimonial[] = [
   {
     id: 'testimonial-hp-1',
-    quote: "CreatorNex LLc's AI-driven strategies significantly boosted our social media engagement. Highly recommended for anyone looking to innovate!",
+    quote: "CreatorNex LLC's AI-driven strategies significantly boosted our social media engagement. Highly recommended for anyone looking to innovate!",
     clientName: 'Rohit Malhotra',
     clientRole: 'Marketing Manager',
     clientCompany: 'SocialBeats Media Pvt. Ltd.',
@@ -26,7 +26,7 @@ const homePageTestimonials: Testimonial[] = [
   },
   {
     id: 'testimonial-hp-3',
-    quote: "Our new AI Agent, developed by CreatorNex LLc, has revolutionized our customer support, handling queries with impressive accuracy and efficiency. We've seen a noticeable drop in response times.",
+    quote: "Our new AI Agent, developed by CreatorNex LLC, has revolutionized our customer support, handling queries with impressive accuracy and efficiency. We've seen a noticeable drop in response times.",
     clientName: 'Karthik Reddy',
     clientRole: 'CTO',
     clientCompany: 'TechNova Solutions',
@@ -34,7 +34,7 @@ const homePageTestimonials: Testimonial[] = [
   },
   {
     id: 'testimonial-hp-4',
-    quote: "The influencer marketing campaign managed by CreatorNex LLc exceeded all our KPIs. Their network and strategic approach are top-notch. Communication was excellent throughout the project.",
+    quote: "The influencer marketing campaign managed by CreatorNex LLC exceeded all our KPIs. Their network and strategic approach are top-notch. Communication was excellent throughout the project.",
     clientName: 'Pooja Sharma',
     clientRole: 'Founder',
     clientCompany: 'GlowUp Skincare',
@@ -42,7 +42,7 @@ const homePageTestimonials: Testimonial[] = [
   },
   {
     id: 'testimonial-hp-5',
-    quote: "From posters to social media graphics, the design team at CreatorNex LLc consistently delivers high-quality, creative assets that align perfectly with our brand vision. They are a pleasure to work with.",
+    quote: "From posters to social media graphics, the design team at CreatorNex LLC consistently delivers high-quality, creative assets that align perfectly with our brand vision. They are a pleasure to work with.",
     clientName: 'Amit Verma',
     clientRole: 'Creative Director',
     clientCompany: ' Verma Real Estates',

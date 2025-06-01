@@ -1,4 +1,3 @@
-
 import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
@@ -61,15 +60,15 @@ export default function UniversityClubPage() {
   return (
     <>
       <Helmet>
-        <title>CreatorNex AI Club</title>
-        <meta name="description" content="Join the CreatorNex AI Club at your university! Connect with fellow AI enthusiasts, participate in workshops, attend events, and contribute to exciting AI projects." />
+        <title>CreatorNex LLC AI Club</title>
+        <meta name="description" content="Join the CreatorNex LLC AI Club at your university! Connect with fellow AI enthusiasts, participate in workshops, attend events, and contribute to exciting AI projects." />
       </Helmet>
 
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <Sparkles className="h-16 w-16 text-accent mx-auto mb-4" />
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            CreatorNex <Highlight>AI Club</Highlight>
+            CreatorNex LLC <Highlight>AI Club</Highlight>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground md:text-xl">
             Ignite your passion for Artificial Intelligence. Connect, learn, and innovate with a community of like-minded students and industry professionals.
@@ -84,6 +83,7 @@ export default function UniversityClubPage() {
               Welcome to the <Highlight>Future of AI</Highlight>
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
+              The CreatorNex LLC AI Club is a student-led initiative supported by CreatorNex LLC, aimed at fostering a vibrant community of AI enthusiasts on campus. Our goal is to provide a platform for learning, collaboration, and innovation in the rapidly evolving field of Artificial Intelligence.
               The CreatorNex AI Club is a student-led initiative supported by CreatorNex, aimed at fostering a vibrant community of AI enthusiasts on campus. Our goal is to provide a platform for learning, collaboration, and innovation in the rapidly evolving field of Artificial Intelligence.
             </p>
             <p className="mt-4 text-lg text-muted-foreground">

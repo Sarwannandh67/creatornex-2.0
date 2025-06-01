@@ -52,7 +52,7 @@ export function JoinClubForm() {
     
     toast({
       title: "Application Submitted!",
-      description: "Thanks for your interest in CreatorNex LLc AI Club. We'll be in touch soon!",
+      description: "Thanks for your interest in CreatorNex LLC AI Club. We'll be in touch soon!",
       variant: "default", 
     });
     form.reset();

@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
   return (
     <header 
       className={cn(
-        "fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[90%] md:w-[92%] lg:w-[85%] xl:w-[80%] border rounded-full",
+        "fixed top-2 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[90%] md:w-[92%] lg:w-[75%] xl:w-[70%] border rounded-full",
         "bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/70", 
         "shadow-lg transition-all duration-300 border-border/40",
         isScrolled && "bg-background/95 shadow-xl border-border/80"
@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Desktop Menu - Center aligned, only visible on screens larger than 1500px */}
-        <div className="hidden 2xl:flex flex-1 justify-center items-center h-full">
+        <div className="hidden 2xl:flex justify-center items-center h-full">
           <Suspense fallback={<div className="h-10 w-96 animate-pulse bg-muted/50 rounded-md" />}>
             <DesktopMenu />
           </Suspense>

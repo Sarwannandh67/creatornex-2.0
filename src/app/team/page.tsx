@@ -24,7 +24,7 @@ export default function TeamPage() {
     <>
       <Helmet>
         <title>Our Team | CreatorNex</title>
-        <meta name="description" content="Meet the talented individuals behind CreatorNex who are driving innovation in AI and digital solutions." />
+        <meta name="description" content="Meet the talented individuals behind CreatorNex LLC who are driving innovation in AI and digital solutions." />
       </Helmet>
     <div className="container mx-auto px-4 py-16">
       <div className="text-center mb-16">

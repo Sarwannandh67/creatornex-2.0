@@ -1,4 +1,3 @@
-
 import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
@@ -14,8 +13,8 @@ import { HelpCircle } from 'lucide-react';
 
 const faqItems = [
   {
-    question: "What kind of AI solutions does CreatorNex offer?",
-    answer: "CreatorNex specializes in custom AI agents for task automation, customer service, data analysis, and personalized experiences. We also offer social media marketing, influencer marketing, design services (logos, posters), and video editing, often enhanced with AI insights."
+    question: "What kind of AI solutions does CreatorNex LLC offer?",
+    answer: "CreatorNex LLC specializes in custom AI agents for task automation, customer service, data analysis, and personalized experiences. We also offer social media marketing, influencer marketing, design services (logos, posters), and video editing, often enhanced with AI insights."
   },
   {
     question: "How does the 'AI Agents as a Service' work?",

@@ -6,7 +6,7 @@ export default function CookiePolicyPage() {
     <>
       <Helmet>
         <title>Cookie Policy - CreatorNex</title>
-        <meta name="description" content="Learn about how CreatorNex uses cookies and similar technologies to provide, improve, and protect our services." />
+        <meta name="description" content="Learn about how CreatorNex LLC uses cookies and similar technologies to provide, improve, and protect our services." />
       </Helmet>
       <SectionWrapper className="prose prose-invert mx-auto max-w-4xl pt-24 md:pt-32">
         <h1 className="text-4xl font-bold mb-8">Cookie Policy</h1>

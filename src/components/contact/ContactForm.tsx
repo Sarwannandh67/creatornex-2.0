@@ -54,7 +54,7 @@ export function ContactForm() {
     
     toast({
       title: "Message Sent!",
-      description: "Thank you for contacting CreatorNex LLc. We'll get back to you as soon as possible.",
+      description: "Thank you for contacting CreatorNex LLC. We'll get back to you as soon as possible.",
       variant: "default",
     });
     form.reset();

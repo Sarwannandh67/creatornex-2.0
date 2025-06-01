@@ -36,9 +36,9 @@ export const allBlogPosts: BlogArticleStub[] = [
   },
   {
     id: 'blog-3',
-    title: 'Designing Logos That Last: A CreatorNex Guide',
+    title: 'Designing Logos That Last: A CreatorNex LLC Guide',
     date: 'October 05, 2024',
-    author: 'Aisha Khan', // Placeholder
+    author: 'CreatorNex LLC Team', // Placeholder
     excerpt: 'Our experts share insights into creating timeless logos that resonate with your brand and audience, covering principles of good design.',
     imageUrl: '/meet.png',
     imageHint: 'logo design process',
@@ -164,14 +164,14 @@ export default function BlogPage() {
   return (
     <>
       <Helmet>
-        <title>CreatorNex Blog</title>
-        <meta name="description" content="Explore articles, insights, and resources from CreatorNex on AI, social media marketing, design, and digital strategy." />
+        <title>CreatorNex LLC Blog</title>
+        <meta name="description" content="Explore articles, insights, and resources from CreatorNex LLC on AI, social media marketing, design, and digital strategy." />
       </Helmet>
       <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
         <div className="text-center max-w-3xl mx-auto">
           <Rss className="h-16 w-16 text-accent mx-auto mb-4" />
           <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            CreatorNex <Highlight>Blog & Resources</Highlight>
+            CreatorNex LLC <Highlight>Blog & Resources</Highlight>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground md:text-xl">
             Dive into our latest articles, tips, and industry insights. Stay informed and inspired with CreatorNex.

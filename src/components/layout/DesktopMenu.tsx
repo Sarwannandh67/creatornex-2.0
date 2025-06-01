@@ -35,7 +35,7 @@ const DesktopMenu: React.FC = () => {
   const { pathname } = useLocation();
 
   return (
-    <nav className="hidden 2xl:flex items-center space-x-3 2xl:space-x-5">
+    <nav className="hidden 2xl:flex items-center space-x-0 2xl:space-x-0.05">
       {/* Home link */}
       <Button
         key="home"

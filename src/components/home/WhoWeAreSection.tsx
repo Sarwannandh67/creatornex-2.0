@@ -53,7 +53,7 @@ export function WhoWeAreSection() {
             variants={itemVariants}
             className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
           >
-            Meet <Highlight>CreatorNex LLc</Highlight>
+            Meet <Highlight>CreatorNex LLC</Highlight>
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -65,7 +65,7 @@ export function WhoWeAreSection() {
             variants={itemVariants}
             className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground"
           >
-            Founded by friends with a shared dream, CreatorNex LLc is your dedicated partner for digital growth and intelligent automation.
+            Founded by friends with a shared dream, CreatorNex LLC is your dedicated partner for digital growth and intelligent automation.
           </motion.p>
           
           <motion.div
@@ -94,7 +94,7 @@ export function WhoWeAreSection() {
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             src="/meet.png"
-            alt="CreatorNex LLc team working collaboratively with innovative ideas"
+            alt="CreatorNex LLC team working collaboratively with innovative ideas"
             className="rounded-xl shadow-xl w-full h-full object-cover"
             data-ai-hint="teamwork innovation office"
           />

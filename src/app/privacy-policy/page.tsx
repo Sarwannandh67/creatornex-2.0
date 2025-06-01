@@ -1,4 +1,3 @@
-
 import { Helmet } from 'react-helmet-async';
 import { SectionWrapper } from '@/components/shared/SectionWrapper';
 import { Highlight } from '@/components/shared/Highlight';
@@ -10,7 +9,7 @@ export default function PrivacyPolicyPage() {
     <>
       <Helmet>
         <title>Privacy Policy</title>
-        <meta name="description" content="Read the Privacy Policy for CreatorNex to understand how we collect, use, and protect your personal information." />
+        <meta name="description" content="Read the Privacy Policy for CreatorNex LLC to understand how we collect, use, and protect your personal information." />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
     <SectionWrapper className="bg-gradient-to-b from-background to-card pt-24 md:pt-32">
@@ -22,13 +21,13 @@ export default function PrivacyPolicyPage() {
         <div className="space-y-6 text-muted-foreground prose prose-invert prose-lg dark:prose-invert max-w-none">
           <p><strong>Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</strong></p>
 
-          <p>CreatorNex ("us", "we", or "our") operates the [Your Website URL] website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
+          <p>CreatorNex LLC ("us", "we", or "our") operates the [Your Website URL] website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
 
           <h2 className="text-2xl font-semibold text-foreground !mt-8 !mb-4">Information Collection and Use</h2>
           <p>We collect several different types of information for various purposes to provide and improve our Service to you. [Placeholder: Add details about types of data collected - e.g., Personal Data, Usage Data, Tracking & Cookies Data].</p>
 
           <h2 className="text-2xl font-semibold text-foreground !mt-8 !mb-4">Use of Data</h2>
-          <p>CreatorNex uses the collected data for various purposes: [Placeholder: List purposes - e.g., To provide and maintain the Service, To notify you about changes, To allow participation in interactive features, To provide customer care and support, To provide analysis or valuable information, To monitor usage, To detect, prevent and address technical issues].</p>
+          <p>CreatorNex LLC uses the collected data for various purposes: [Placeholder: List purposes - e.g., To provide and maintain the Service, To notify you about changes, To allow participation in interactive features, To provide customer care and support, To provide analysis or valuable information, To monitor usage, To detect, prevent and address technical issues].</p>
           
           <h2 className="text-2xl font-semibold text-foreground !mt-8 !mb-4">Data Security</h2>
           <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security. [Placeholder: Add more details on security measures].</p>

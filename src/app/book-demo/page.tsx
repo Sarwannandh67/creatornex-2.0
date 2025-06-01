@@ -7,7 +7,7 @@ export default function BookDemoPage() {
     <>
       <Helmet>
         <title>Book a Demo - CreatorNex</title>
-        <meta name="description" content="Schedule a personalized demo to see how CreatorNex can transform your digital presence with AI-powered solutions." />
+        <meta name="description" content="Schedule a personalized demo to see how CreatorNex LLC can transform your digital presence with AI-powered solutions." />
       </Helmet>
       <SectionWrapper className="prose prose-invert mx-auto max-w-4xl pt-24 md:pt-32">
         <BookDemoForm />

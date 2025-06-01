@@ -43,14 +43,14 @@ const ClientComponents: React.FC = () => {
       <LazyComponentWrapper>
         <WhatsAppButton 
           phoneNumber="+917416086946" 
-          message="Hi! I'd like to learn more about CreatorNex services." 
+          message="Hi! I'd like to learn more about CreatorNex LLC services." 
         />
       </LazyComponentWrapper>
 
       <LazyComponentWrapper>
         <TelegramButton 
           username="CreatorNex" 
-          message="Hi! I'd like to learn more about CreatorNex services." 
+          message="Hi! I'd like to learn more about CreatorNex LLC services." 
         />
       </LazyComponentWrapper>
     </>

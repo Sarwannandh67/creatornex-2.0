@@ -25,7 +25,7 @@ export default function SupportPage() {
     <>
       <Helmet>
         <title>Support - CreatorNex</title>
-        <meta name="description" content="Get help and support for CreatorNex services and products." />
+        <meta name="description" content="Get help and support for CreatorNex LLC services and products." />
       </Helmet>
 
       {/* Support Hero Section */}
@@ -69,8 +69,8 @@ export default function SupportPage() {
               <div className="space-y-4">
                 {/* Example FAQ Item (Placeholder) */}
                 <div className="border rounded-lg p-4 bg-background/50 backdrop-blur-sm">
-                  <p className="font-medium text-foreground">Q: What services does CreatorNex offer?</p>
-                  <p className="text-muted-foreground mt-2">A: CreatorNex offers a comprehensive suite of digital and AI services, including AI Agents, Web Development, Social Media Marketing, Influencer Marketing, Logo & Poster Design, Video Editing, and SEO.</p>
+                  <p className="font-medium text-foreground">Q: What services does CreatorNex LLC offer?</p>
+                  <p className="text-muted-foreground mt-2">A: CreatorNex LLC offers a comprehensive suite of digital and AI services, including AI Agents, Web Development, Social Media Marketing, Influencer Marketing, Logo & Poster Design, Video Editing, and SEO.</p>
                 </div>
                 {/* Add more FAQ items for this category */}
               </div>
@@ -114,7 +114,7 @@ export default function SupportPage() {
                <div className="space-y-4">
                 {/* Example FAQ Item (Placeholder) */}
                 <div className="border rounded-lg p-4 bg-background/50 backdrop-blur-sm">
-                  <p className="font-medium text-foreground">Q: How can I join the CreatorNex AI Club?</p>
+                  <p className="font-medium text-foreground">Q: How can I join the CreatorNex LLC AI Club?</p>
                   <p className="text-muted-foreground mt-2">A: Information on joining the club and upcoming events can be found on our Club page or by contacting us.</p>
                 </div>
                 {/* Add more FAQ items for this category */}

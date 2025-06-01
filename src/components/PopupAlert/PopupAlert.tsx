@@ -13,7 +13,7 @@ interface PopupAlertProps {
 }
 
 const PopupAlert: React.FC<PopupAlertProps> = ({
-  title = "🎉 Welcome to CreatorNex LLc 2.0!",
+  title = "🎉 Welcome to CreatorNex LLC 2.0!",
   title2,
   message = "Ready to unleash your creativity? Join thousands of creators building amazing content with our platform. Get started today and transform your ideas into reality!",
   showOnLoad = true,

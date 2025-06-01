@@ -47,7 +47,7 @@ export function CallToActionSection() {
           variants={itemVariants}
           className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground"
         >
-          Let's discuss how CreatorNex LLc can help you leverage the power of AI and innovative digital solutions to achieve your goals.
+          Let's discuss how CreatorNex LLC can help you leverage the power of AI and innovative digital solutions to achieve your goals.
         </motion.p>
         <motion.div
           variants={itemVariants}

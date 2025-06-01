@@ -151,7 +151,7 @@ export default function CareersPage() {
           <div className="relative h-80 md:h-[450px] w-full">
             <img
               src="/remote-team-collaboration.jpg"
-              alt="CreatorNex remote team collaboration"
+              alt="CreatorNex LLC remote team collaboration"
               className="w-full h-full rounded-xl shadow-xl object-cover"
             />
           </div>
