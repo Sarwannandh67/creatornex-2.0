@@ -71,18 +71,7 @@ const remotePerks = [
 export default function CareersPage() {
   const handleApplyClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    setTimeout(() => {
-      const formElement = document.getElementById('application-form');
-      if (formElement) {
-        const yOffset = -100;
-        const y = formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        
-        window.scrollTo({
-          top: y,
-          behavior: 'smooth'
-        });
-      }
-    }, 100);
+    window.location.href = 'https://forms.gle/iUFhbS6RHqpUqRx6A';
   };
 
   return (
